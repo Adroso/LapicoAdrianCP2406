@@ -3,7 +3,11 @@
  */
 import java.util.*;
 public class superTGame {
+    private static final int INITIAL_CARD_DEAL = 8 ;
     private int numPlayers;
+    private superTplayer [] players;
+    private superTDeck deck;
+
     public superTGame(int numPlayers) {
         this.numPlayers = numPlayers;
     }
@@ -13,5 +17,14 @@ public class superTGame {
         int randomDealer = ran.nextInt(numPlayers)+1;
         System.out.println(randomDealer);
 
+    }
+
+    public void dealRandomCardsToPlayers() {
+        players = new superTplayer[numPlayers];
+
+        for (superTplayer player: players) {
+            ArrayList<superTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
+            player.setCard();
+        }
     }
 }

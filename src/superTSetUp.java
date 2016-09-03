@@ -39,6 +39,7 @@ public class superTSetUp {
         int numPlayers = getNumPlayers();
         superTGame game = new superTGame(numPlayers);
         game.selectDealer();
+        game.dealRandomCardsToPlayers();
     }
 
     private static int getNumPlayers() {
