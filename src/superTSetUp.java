@@ -42,7 +42,7 @@ public class superTSetUp {
     }
 
     private static int getNumPlayers() {
-        System.out.println("How many AI Players? Choose 2-4");
+        System.out.println("How many Players? Choose 3 - 5");
         int userInput = getUserMenuInput();
         return userInput;
     }
