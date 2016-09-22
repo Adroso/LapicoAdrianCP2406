@@ -15,6 +15,7 @@ public class SuperTDeck {
 
     public static void ImportCards(){
         // Reading the JSON file of cards
+        //TODO work out importing JSON READER
         JSONParser parser = new JSONParser();
 
         try {
