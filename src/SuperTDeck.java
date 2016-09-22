@@ -1,22 +1,21 @@
 import java.util.ArrayList;
-
 /**
  * Created by Adroso360 on 3/09/2016.
  */
-public class superTDeck {
+public class SuperTDeck {
     private static final int NUM_INIT_CARDS = 60;
-    private ArrayList<superTCard> cards;
+    private ArrayList<SuperTCard> cards;
 
     // import the XML card file
-    public superTDeck(){
-        cards = new ArrayList<superTCard>();
+    public SuperTDeck(){
+        cards = new ArrayList<SuperTCard>();
         for (int i = 0; i < NUM_INIT_CARDS; i++) {
              cards.add(new stCard());
             // create random interger array with no repeating
 
         }
     }
-    public ArrayList<superTCard> dealCards(int i) {
+    public ArrayList<SuperTCard> dealCards(int i) {
         return null;
     }
 }

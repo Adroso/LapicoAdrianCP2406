@@ -2,13 +2,13 @@
  * Created by Adroso360 on 3/09/2016.
  */
 import java.util.*;
-public class superTGame {
+public class SuperTGame {
     private static final int INITIAL_CARD_DEAL = 8 ;
     private int numPlayers;
-    private superTplayer [] players;
-    private superTDeck deck;
+    private SuperTplayer[] players;
+    private SuperTDeck deck;
 
-    public superTGame(int numPlayers) {
+    public SuperTGame(int numPlayers) {
         this.numPlayers = numPlayers;
     }
 
@@ -20,10 +20,10 @@ public class superTGame {
     }
 
     public void dealRandomCardsToPlayers() {
-        players = new superTplayer[numPlayers];
+        players = new SuperTplayer[numPlayers];
 
-        for (superTplayer player: players) {
-            ArrayList<superTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
+        for (SuperTplayer player: players) {
+            ArrayList<SuperTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard();
         }
     }

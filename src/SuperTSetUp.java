@@ -2,7 +2,7 @@
  * Created by Adroso360 on 27/08/2016.
  */
 import java.util.*;
-public class superTSetUp {
+public class SuperTSetUp {
     public static void main(String[] args) {
 
         displayWelcome();
@@ -37,7 +37,7 @@ public class superTSetUp {
 
     private static void startNewGame() {
         int numPlayers = getNumPlayers();
-        superTGame game = new superTGame(numPlayers);
+        SuperTGame game = new SuperTGame(numPlayers);
         game.selectDealer();
         game.dealRandomCardsToPlayers();
     }
