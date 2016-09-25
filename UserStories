@@ -1,0 +1,23 @@
+Menu is displayed to user
+User can pick either play, quit, or information
+If user picks quit, the program exists
+If user picks information, the game rules are displayed
+if user selects play the game starts
+Players are allocated positions
+A random player is selected and notified they are the dealer
+8 (out of 60) cards are given to each player
+The player position dealer -1 can play a mineral card
+The played cards mineral name, category and the top value of the category is displayed
+The player position prevplayer -1 can play a mineral card of equal category to the previous
+The played cards mineral name, category and the top value of the category is displayed
+If a player does not have a mineral card of higher value than the one played or a supertump card the player draws a card and dosent play a card
+A player can choose to pass
+A player who has passed is locked from participating untill only 1 player is left who has not passed or a super trump is played
+A player can play  a supertrump card during their turn instead of a mineral card.
+// look into the double supertrump stuuufff
+If a player has 0 cards they win the game
+The game continues untill only 1 player has cards
+
+
+
+
