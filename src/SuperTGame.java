@@ -15,7 +15,7 @@ public class SuperTGame {
     public void selectDealer() {
         Random ran = new Random();
         int randomDealer = ran.nextInt(numPlayers)+1;
-        System.out.println(randomDealer);
+        System.out.println("Player: " + randomDealer + " is the dealer");
 
     }
 
