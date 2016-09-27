@@ -5,16 +5,24 @@ import java.util.*;
 public class SuperTSetUp {
     public static void main(String[] args) {
 
+        boolean menuCheck = true;
         displayWelcome();
-        displayMenu();
-        int userChoice = getUserMenuInput();
-        switch (userChoice){
-            case 1: startNewGame();
-                break;
-            case 2: displayGameInfo();
-                break;
-            case 3: System.exit(1);
-                break;
+        while (menuCheck) {
+            displayMenu();
+            int userChoice = getUserMenuInput();
+            switch (userChoice) {
+                case 1:
+                    menuCheck =false;
+                    startNewGame();
+                    break;
+                case 2:
+                    displayGameInfo();
+                    break;
+                case 3:
+                    menuCheck = false;
+                    System.exit(1);
+                    break;
+            }
         }
     }
 
@@ -33,18 +41,29 @@ public class SuperTSetUp {
                 "Number of players: 3 to 5\n" +
                 "\n" +
                 "Objective: To be the first player to lose all of your cards");
+
     }
 
     private static void startNewGame() {
         int numPlayers = getNumPlayers();
+        while (numPlayers != 3 && numPlayers != 4 && numPlayers != 5) {
+            System.out.println("Invalid Input");
+            numPlayers = getNumPlayers();
+        }
         SuperTGame game = new SuperTGame(numPlayers);
         game.selectDealer();
-        game.dealRandomCardsToPlayers();
+        /*game.dealRandomCardsToPlayers();*/
     }
 
     private static int getNumPlayers() {
         System.out.println("How many Players? Choose 3 - 5");
-        int userInput = getUserMenuInput();
+        int userInput = 0;
+        try {
+            userInput = getUserMenuInput();
+        }
+        catch (InputMismatchException pl) {
+            System.out.println("Not a Number Exception");
+        }
         return userInput;
     }
 

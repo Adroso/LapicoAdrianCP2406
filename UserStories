@@ -1,8 +1,8 @@
-Menu is displayed to user
-User can pick either play, quit, or information
-If user picks quit, the program exists
-If user picks information, the game rules are displayed
-if user selects play the game starts
+.Menu is displayed to user
+.User can pick either play, quit, or information
+.If user picks quit, the program exists
+.If user picks information, the game rules are displayed
+.if user selects play the game starts
 Players are allocated positions
 A random player is selected and notified they are the dealer
 8 (out of 60) cards are given to each player
@@ -16,7 +16,7 @@ A player who has passed is locked from participating untill only 1 player is lef
 A player can play  a supertrump card during their turn.
 // look into the double supertrump stuuufff
 If a player has 0 cards they win the game
-The game continues untill only 1 player has cards
+The game continues until only 1 player has cards
 
 
 
