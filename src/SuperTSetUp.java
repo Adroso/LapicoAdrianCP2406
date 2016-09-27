@@ -10,6 +10,11 @@ public class SuperTSetUp {
         while (menuCheck) {
             displayMenu();
             int userChoice = getUserMenuInput();
+            while (userChoice != 1 && userChoice != 2 && userChoice != 3) {
+                System.out.println("Invalid Input");
+                displayMenu();
+                userChoice =getUserMenuInput();
+            }
             switch (userChoice) {
                 case 1:
                     menuCheck =false;
@@ -69,7 +74,12 @@ public class SuperTSetUp {
 
     private static int getUserMenuInput() {
         Scanner reader = new Scanner(System.in);
-        int userInput = reader.nextInt();
+        int userInput = 0;
+        try {
+            userInput = reader.nextInt();
+        } catch (InputMismatchException p2) {
+            System.out.println("Not a number Exception");
+        }
         return userInput;
     }
 
