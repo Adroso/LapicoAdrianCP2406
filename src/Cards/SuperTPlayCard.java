@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Adroso360 on 29/09/2016.
  */
-public class SuperTPlayCard {
+public class SuperTPlayCard extends BaseSuperTCard {
     protected String chemistry;
     protected String classification;
     protected String crysSystem;
@@ -16,7 +16,8 @@ public class SuperTPlayCard {
     protected String crustAbundance;
     protected String ecoVal;
 
-    public SuperTPlayCard () {
+    public SuperTPlayCard (String fileName, String imageName, String title, ) {
+        super(fileName, imageName, title);
 
     }
 

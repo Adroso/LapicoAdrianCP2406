@@ -22,6 +22,6 @@ public class BaseSuperTCard {
     }
 
     public String toString() {
-            return(fileName + " " + imageName);
+            return(fileName + " " + imageName + " " + title);
         }
 }
