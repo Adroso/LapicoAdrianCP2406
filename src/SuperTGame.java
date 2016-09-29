@@ -10,6 +10,7 @@ public class SuperTGame {
 
     public SuperTGame(int numPlayers) {
         this.numPlayers = numPlayers;
+        new SuperTDeck();
     }
 
     public void selectDealer() {

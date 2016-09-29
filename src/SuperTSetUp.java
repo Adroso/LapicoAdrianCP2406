@@ -57,7 +57,7 @@ public class SuperTSetUp {
         }
         SuperTGame game = new SuperTGame(numPlayers);
         game.selectDealer();
-        System.out.println(SuperTDeck.Deckbuilder(1));
+        /*System.out.println(SuperTDeck.Deckbuilder(1));*/
         /*game.dealRandomCardsToPlayers();*/
     }
 

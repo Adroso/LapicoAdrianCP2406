@@ -9,12 +9,11 @@ public class SuperTDeck {
     private static final int NUM_INIT_CARDS = 60;
     private ArrayList<SuperTCard> cards;
 
-
-
     public SuperTDeck(){
         cards = new ArrayList<SuperTCard>();
         for (int i = 0; i < NUM_INIT_CARDS; i++) {
-             cards.add(new SuperTCard());
+             cards.add(new SuperTCard("Slide"));
+            System.out.println(cards.toString());
             // create random interger array with no repeating
 
         }
@@ -22,14 +21,6 @@ public class SuperTDeck {
     public ArrayList<SuperTCard> dealCards(int i) {
         return null;
     }
-
-    public static String Deckbuilder(int inputNumber){
-        String[] filenames = {"Slide01.jpg", "Slide02.jpg"};
-        String[] chemistry = {"SiO_2", "Na Al Si_3 O_8 - Ca Al_2 Si_2 O_8"};
-
-        String card = filenames[inputNumber] + chemistry[inputNumber];
-        return card;
-        }
 
     }
 
