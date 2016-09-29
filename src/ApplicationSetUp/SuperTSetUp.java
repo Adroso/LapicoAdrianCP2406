@@ -1,6 +1,8 @@
-/**
+package ApplicationSetUp; /**
  * Created by Adroso360 on 27/08/2016.
  */
+import Gameplay.SuperTGame;
+
 import java.util.*;
 public class SuperTSetUp {
     public static void main(String[] args) {
@@ -57,7 +59,7 @@ public class SuperTSetUp {
         }
         SuperTGame game = new SuperTGame(numPlayers);
         game.selectDealer();
-        /*System.out.println(SuperTDeck.Deckbuilder(1));*/
+        /*System.out.println(Cards.SuperTDeck.Deckbuilder(1));*/
         /*game.dealRandomCardsToPlayers();*/
     }
 

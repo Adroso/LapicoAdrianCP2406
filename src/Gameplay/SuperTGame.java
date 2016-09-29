@@ -1,6 +1,10 @@
-/**
+package Gameplay; /**
  * Created by Adroso360 on 3/09/2016.
  */
+import Cards.BaseSuperTCard;
+import Players.SuperTplayer;
+import Cards.SuperTDeck;
+
 import java.util.*;
 public class SuperTGame {
     private static final int INITIAL_CARD_DEAL = 8 ;
@@ -24,7 +28,7 @@ public class SuperTGame {
         players = new SuperTplayer[numPlayers];
 
         for (SuperTplayer player: players) {
-            ArrayList<SuperTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
+            ArrayList<BaseSuperTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard();
         }
     }
