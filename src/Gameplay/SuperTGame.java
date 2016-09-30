@@ -19,7 +19,7 @@ public class SuperTGame {
         deck = new SuperTDeck();
         this.numPlayers = numPlayers;
         System.out.println("Creating New Game of  " + numPlayers +" Players.........");
-        //assignpositions();
+        // RETIRED assignpositions();
         selectDealer();
         new SuperTDeck();
         dealRandomCardsToPlayers();
@@ -29,8 +29,8 @@ public class SuperTGame {
        //showPlayer(players[1]);
         //showPlayer(players[2]);
 
-
     }
+
 
     private void showPlayer(SuperTHumanplayer hupl) {
         System.out.println("You are Player "+ hupl );
@@ -45,7 +45,7 @@ public class SuperTGame {
         yourPlayerId = 0;
     }
 
-    //Instances the number of player objects
+    //RETIRED Instances the number of player objects
     /*private void assignpositions() {
         SuperTHumanplayer player = new SuperTHumanplayer(0);
         for (int i = 1; i < numPlayers; i++) {
@@ -59,7 +59,7 @@ public class SuperTGame {
         Random ran = new Random();
         int randomDealer = ran.nextInt(numPlayers)+1;
         //TODO set dealer to true on slected number
-        System.out.println("Player: " + randomDealer + " is the dealer");
+        System.out.println("Player: " + randomDealer + " is the dealer" + "\n Player: " + (randomDealer-1 + " Will go First") );
 
     }
 
