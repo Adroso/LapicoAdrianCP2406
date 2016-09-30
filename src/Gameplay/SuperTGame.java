@@ -13,25 +13,47 @@ public class SuperTGame {
     private int numPlayers;
     private SuperTHumanplayer[] players;
     private SuperTDeck deck;
+    int yourPlayerId;
 
     public SuperTGame(int numPlayers) {
+        deck = new SuperTDeck();
         this.numPlayers = numPlayers;
         System.out.println("Creating New Game of  " + numPlayers +" Players.........");
-        assignpositions();
+        //assignpositions();
         selectDealer();
         new SuperTDeck();
+        dealRandomCardsToPlayers();
+        selectYouasPlayer();
+        SuperTHumanplayer hupl = getHumanPlayer();
+        showPlayer(hupl);
+       //showPlayer(players[1]);
+        //showPlayer(players[2]);
+
 
     }
 
+    private void showPlayer(SuperTHumanplayer hupl) {
+        System.out.println("You are Player "+ hupl );
+    }
+
+    private SuperTHumanplayer getHumanPlayer() {
+        return players[yourPlayerId];
+    }
+
+
+    private void selectYouasPlayer() {
+        yourPlayerId = 0;
+    }
+
     //Instances the number of player objects
-    private void assignpositions() {
+    /*private void assignpositions() {
         SuperTHumanplayer player = new SuperTHumanplayer(0);
         for (int i = 1; i < numPlayers; i++) {
             SuperTBotPlayer bplayer = new SuperTBotPlayer(i);
             System.out.println(bplayer);
         }
         System.out.println(player);
-    }
+    }*/
 
     public void selectDealer() {
         Random ran = new Random();
@@ -43,10 +65,13 @@ public class SuperTGame {
 
     public void dealRandomCardsToPlayers() {
         players = new SuperTHumanplayer[numPlayers];
+        for (int i = 0; i < numPlayers; i++){
+            players[i] = new SuperTHumanplayer(i);
 
+        }
         for (SuperTHumanplayer player: players) {
-            ArrayList<BaseSuperTCard> card = deck.dealCards(INITIAL_CARD_DEAL);
-            //player.setCard();
+            ArrayList<BaseSuperTCard> cards = deck.dealCards(INITIAL_CARD_DEAL);
+            player.setCard(cards);
         }
     }
 }

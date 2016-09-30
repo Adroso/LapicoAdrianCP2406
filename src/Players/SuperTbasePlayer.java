@@ -1,5 +1,7 @@
 package Players;
 
+import Cards.BaseSuperTCard;
+
 import java.util.ArrayList;
 
 /**
@@ -15,6 +17,10 @@ public class SuperTbasePlayer {
         this.position = position;
     }
     public String toString() {
-        return String.valueOf((position));
+        return String.valueOf((position) + "\n cards: " + hand);
+    }
+
+    public void setCard(ArrayList<BaseSuperTCard> cards) {
+        hand = cards;
     }
 }
