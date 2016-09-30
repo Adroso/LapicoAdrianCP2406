@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 public class SuperTDeck {
-    private static final int NUM_INIT_CARDS = 61; // 61 to account for the arraylist of 60 cards
+    private static final int NUM_INIT_CARDS = 60; // 61 to account for the arraylist of 60 cards
     private ArrayList<BaseSuperTCard> cards;
 
     public SuperTDeck(){
@@ -75,6 +75,7 @@ public class SuperTDeck {
         cards.add(new SuperTTrumpCard("Slide59.jpg", "Slide59", "The Geophysicist", "Specific gravity", "Specific gravity" ));
         cards.add(new SuperTTrumpCard("Slide60.jpg", "Slide60", "The Geologist", "Change to trumps category of your choice", "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"));
 
+        Collections.shuffle(cards);
 
         //Testing Deck
         //Old input for File

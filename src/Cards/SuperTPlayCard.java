@@ -35,5 +35,7 @@ public class SuperTPlayCard extends BaseSuperTCard {
 
 
     }
-
+    public String toString() {
+        return(fileName + " " + imageName + " " + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
+    }
 }
