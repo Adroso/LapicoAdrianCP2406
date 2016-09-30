@@ -75,18 +75,20 @@ public class SuperTDeck {
         cards.add(new SuperTTrumpCard("Slide59.jpg", "Slide59", "The Geophysicist", "Specific gravity", "Specific gravity" ));
         cards.add(new SuperTTrumpCard("Slide60.jpg", "Slide60", "The Geologist", "Change to trumps category of your choice", "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"));
 
-        Collections.shuffle(cards);
-
         //Testing Deck
         //Old input for File
-        for (int i = 0; i < NUM_INIT_CARDS; i++) {
-            System.out.println(cards.get(i));
+        /*for (int i = 0; i < NUM_INIT_CARDS; i++) {
+            System.out.println(cards.get(i));*/
             // create random interger array with no repeating
         }
 
-        }
+
     public ArrayList<BaseSuperTCard> dealCards(int i) {
         return null;
+    }
+
+    public ArrayList getDeck(){
+        return cards;
     }
 
     }
