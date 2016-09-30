@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 public class SuperTDeck {
-    private static final int NUM_INIT_CARDS = 60; // 61 to account for the arraylist of 60 cards
+    //RETIRED AS HARDCODED CARDS private static final int NUM_INIT_CARDS = 60;
     private ArrayList<BaseSuperTCard> cards;
 
     public SuperTDeck(){
@@ -67,7 +67,7 @@ public class SuperTDeck {
         cards.add(new SuperTPlayCard("Slide52.jpg", "Slide52", "Cassiterite", "Sn O_2", "oxide", "tetragonal", "igneous,metamorphic,sedimentary", 6,7, 6.9, 7.1, "1 good, 1 poor", "trace", "high"));
         cards.add(new SuperTPlayCard("Slide53.jpg", "Slide53", "Gibbsite", "Al (O H)_3", "hydroxide", "monoclinic", "metamorphic,sedimentary", 2.5, 3.5, 2.4, 2.4, "1 perfect", "low", "high"));
         cards.add(new SuperTPlayCard("Slide54.jpg", "Slide54", "Goethite", "Fe O (OH)", "hydroxide", "orthorhombic", "sedimentary", 5, 5.5, 4.3, 4.3, "1 perfect, 1 good", "moderate", "moderate"));
-        //Trump Cards
+        //Trump Cards Initialisation
         cards.add(new SuperTTrumpCard("Slide55.jpg", "Slide55", "The Miner", "Economic value", "Economic value" ));
         cards.add(new SuperTTrumpCard("Slide56.jpg", "Slide56", "The Petrologist", "Crustal abundance", "Crustal abundance" ));
         cards.add(new SuperTTrumpCard("Slide57.jpg", "Slide57", "The Gemmologist", "Hardness", "Hardness" ));
@@ -76,11 +76,6 @@ public class SuperTDeck {
         cards.add(new SuperTTrumpCard("Slide60.jpg", "Slide60", "The Geologist", "Change to trumps category of your choice", "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"));
 
         Collections.shuffle(cards);
-        //Testing Deck
-        //Old input for File
-        /*for (int i = 0; i < NUM_INIT_CARDS; i++) {
-            System.out.println(cards.get(i));*/
-            // create random interger array with no repeating
         }
 
 
@@ -102,3 +97,8 @@ public class SuperTDeck {
 
     }
 
+//////////Testing Deck//////////
+//Old input for File
+        /*for (int i = 0; i < NUM_INIT_CARDS; i++) {
+            System.out.println(cards.get(i));*/
+// create random interger array with no repeating

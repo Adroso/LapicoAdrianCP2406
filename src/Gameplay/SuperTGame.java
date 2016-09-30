@@ -23,11 +23,11 @@ public class SuperTGame {
         selectDealer();
         new SuperTDeck();
         dealRandomCardsToPlayers();
+
+        //Handling the game just for the user
         selectYouasPlayer();
         SuperTHumanplayer hupl = getHumanPlayer();
         showPlayer(hupl);
-       //showPlayer(players[1]);
-        //showPlayer(players[2]);
 
     }
 
@@ -44,16 +44,6 @@ public class SuperTGame {
     private void selectYouasPlayer() {
         yourPlayerId = 0;
     }
-
-    //RETIRED Instances the number of player objects
-    /*private void assignpositions() {
-        SuperTHumanplayer player = new SuperTHumanplayer(0);
-        for (int i = 1; i < numPlayers; i++) {
-            SuperTBotPlayer bplayer = new SuperTBotPlayer(i);
-            System.out.println(bplayer);
-        }
-        System.out.println(player);
-    }*/
 
     public void selectDealer() {
         Random ran = new Random();
@@ -75,3 +65,14 @@ public class SuperTGame {
         }
     }
 }
+
+//////////TEST CODE or OLD CODE///////////////
+//RETIRED Instances the number of player objects
+    /*private void assignpositions() {
+        SuperTHumanplayer player = new SuperTHumanplayer(0);
+        for (int i = 1; i < numPlayers; i++) {
+            SuperTBotPlayer bplayer = new SuperTBotPlayer(i);
+            System.out.println(bplayer);
+        }
+        System.out.println(player);
+    }*/

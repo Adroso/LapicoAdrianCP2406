@@ -7,17 +7,17 @@ import java.util.ArrayList;
  * Created by Adroso360 on 29/09/2016.
  */
 public class SuperTPlayCard extends BaseSuperTCard {
-    protected String chemistry;
-    protected String classification;
-    protected String crysSystem;
-    protected String occurrence;
-    protected double lowhardness;
-    protected double highhardness;
-    protected double lowspecGravity;
-    protected double highspecGravity;
-    protected String cleavage;
-    protected String crustAbundance;
-    protected String ecoVal;
+    public String chemistry;
+    public String classification;
+    public String crysSystem;
+    public String occurrence;
+    public double lowhardness;
+    public double highhardness;
+    public double lowspecGravity;
+    public double highspecGravity;
+    public String cleavage;
+    public String crustAbundance;
+    public String ecoVal;
 
     public SuperTPlayCard (String fileName, String imageName, String title, String chemistry, String classification, String crysSystem, String occurrence, double lowhardness, double highhardness, double lowspecGravity, double highspecGravity, String cleavage, String crustAbundance, String ecoVal) {
         super(fileName, imageName, title);
@@ -36,6 +36,7 @@ public class SuperTPlayCard extends BaseSuperTCard {
 
     }
     public String toString() {
-        return(fileName + " " + imageName + " " + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
+        return("\n" + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
     }
+
 }
