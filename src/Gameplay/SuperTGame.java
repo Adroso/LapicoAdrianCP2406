@@ -11,9 +11,11 @@ import java.util.*;
 public class SuperTGame {
     private static final int INITIAL_CARD_DEAL = 8 ;
     private int numPlayers;
-    private SuperTHumanplayer[] players;
+    private SuperTbasePlayer[] players;
     private SuperTDeck deck;
-    int yourPlayerId;
+    public int yourPlayerId;
+    public int randomDealer;
+    public int startingPlay;
 
     public SuperTGame(int numPlayers) {
         deck = new SuperTDeck();
@@ -26,17 +28,17 @@ public class SuperTGame {
 
         //Handling the game just for the user
         selectYouasPlayer();
-        SuperTHumanplayer hupl = getHumanPlayer();
+        SuperTbasePlayer hupl = getHumanPlayer();
         showPlayer(hupl);
-
+        new SuperTRound(arrayToList(players), players[startingPlay]).beginRound();
     }
 
 
-    private void showPlayer(SuperTHumanplayer hupl) {
+    private void showPlayer(SuperTbasePlayer hupl) {
         System.out.println("You are Player "+ hupl );
     }
 
-    private SuperTHumanplayer getHumanPlayer() {
+    private SuperTbasePlayer getHumanPlayer() {
         return players[yourPlayerId];
     }
 
@@ -47,22 +49,30 @@ public class SuperTGame {
 
     public void selectDealer() {
         Random ran = new Random();
-        int randomDealer = ran.nextInt(numPlayers)+1;
+        randomDealer = ran.nextInt(numPlayers)+1;
+        startingPlay = randomDealer-1;
         //TODO set dealer to true on slected number
         System.out.println("Player: " + randomDealer + " is the dealer" + "\n Player: " + (randomDealer-1 + " Will go First") );
 
     }
 
     public void dealRandomCardsToPlayers() {
-        players = new SuperTHumanplayer[numPlayers];
+        players = new SuperTbasePlayer[numPlayers];
         for (int i = 0; i < numPlayers; i++){
-            players[i] = new SuperTHumanplayer(i);
+            players[i] = new SuperTBotPlayer(i);
 
         }
-        for (SuperTHumanplayer player: players) {
+        for (SuperTbasePlayer player: players) {
             ArrayList<BaseSuperTCard> cards = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard(cards);
         }
+    }
+    public ArrayList<SuperTbasePlayer> arrayToList(SuperTbasePlayer[] players){
+       ArrayList<SuperTbasePlayer> newArrayList = new ArrayList<SuperTbasePlayer>();
+        for (SuperTbasePlayer superTbasePlayer:players){
+            newArrayList.add(superTbasePlayer);
+        }
+        return newArrayList;
     }
 }
 

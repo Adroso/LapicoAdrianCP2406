@@ -5,6 +5,10 @@ package Players;
  */
 public class SuperTHumanplayer extends SuperTbasePlayer {
 
+    public PlayerType getPlayerType() {
+        return PlayerType.HUMAN;
+    }
+
     public SuperTHumanplayer(int position) {
         super(position);
     }

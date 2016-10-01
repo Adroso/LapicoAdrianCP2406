@@ -10,18 +10,17 @@ import java.util.List;
 /**
  * Created by Adroso360 on 30/09/2016.
  */
-public class SuperTbasePlayer {
+public abstract class SuperTbasePlayer {
     public int position;
-    public boolean isDealer = false;
     public ArrayList hand;
-    public String playStatus;
+    public abstract PlayerType getPlayerType();
 
 
     public SuperTbasePlayer(int position){
         this.position = position;
     }
     public String toString() {
-        handTest();
+        //handTest();
         return String.valueOf((position) + "\nYour Cards: " + hand);
     }
 
@@ -33,9 +32,9 @@ public class SuperTbasePlayer {
         SuperTPlayCard lol = (SuperTPlayCard) hand.get(1);
         System.out.println(lol.title);
 
-
-
-
     }
-
+    public enum PlayerType{
+        BOT,
+        HUMAN,
+    }
 }
