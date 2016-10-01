@@ -52,7 +52,7 @@ public class HumanHandle {
             } catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input");
             }
-            if (userInput < 0 || userInput > currentPlayer.hand.size())
+            if (userInput > 0 || userInput < currentPlayer.hand.size())
                 if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard,currentCat)){
                     System.out.println(currentPlayer.hand.get(userInput).title + " is not better than " + currentCard.title);
                     userInput = -1;

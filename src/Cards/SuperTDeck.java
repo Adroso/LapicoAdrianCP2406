@@ -88,7 +88,7 @@ public class SuperTDeck {
     }
 
     public Card takeCard() {
-        return cards.get(0);
+        return cards.remove(0);
     }
 }
 

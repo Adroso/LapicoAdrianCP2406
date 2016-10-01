@@ -59,7 +59,6 @@ public class SuperTGame {
         Random ran = new Random();
         randomDealer = ran.nextInt(numPlayers)+1;
         startingPlay = randomDealer+1;
-        //TODO set dealer to true on slected number
         System.out.println("Player: " + randomDealer + " is the dealer" + "\n Player: " + (randomDealer-1 + " Will go First") );
 
     }

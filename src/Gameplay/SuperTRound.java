@@ -36,10 +36,11 @@ public class SuperTRound {
         Player currentPlayer = startingPlayer;
         String currentCat = findCategory(currentPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
         Card currentCard = findPickCard(currentPlayer, currentCat, null);
+        System.out.println(currentPlayer.position + "posistion");
+        System.out.println(currentCard.title + "posistion");
         System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
         currentPlayer.hand.remove(currentCard);
         didPlayerWin(currentPlayer);
-        System.out.println(players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, - 1);
         // Round Handler for players left in game
@@ -64,6 +65,7 @@ public class SuperTRound {
                 Collections.rotate(players, -1);
             }
         }
+        System.out.println("Player who won: " + players.get(0));
         return players.get(0);
     }
 
@@ -81,7 +83,7 @@ public class SuperTRound {
         }
         else
         if (currentPlayer.getPlayerType() == Player.PlayerType.BOT){
-            currentCard = new BotAI().chooseCard(currentCard, currentCat,startingPlayer);
+            currentCard = new BotAI().chooseCard(currentCard, currentCat,currentPlayer);
         }
         return currentCard;
     }
