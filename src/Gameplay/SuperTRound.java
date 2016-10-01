@@ -24,16 +24,25 @@ public class SuperTRound {
     public SuperTbasePlayer beginRound() {
         SuperTbasePlayer currentPlayer = startingPlayer;
         String currentCat;
+        BaseSuperTCard currentCard = null;
         if (currentPlayer.getPlayerType() == SuperTbasePlayer.PlayerType.BOT){
             currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
+            System.out.println("Player: " + startingPlayer + " Has Choosen:  " + currentCat);
+            currentCard = new BotAI().chooseCard(null, currentCat,startingPlayer);
         }
         else
             currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
-
-        System.out.println("Player: " + startingPlayer + " Has Choosen" + currentCat);
-        while (players.size() > 1){
-
+        if (currentCard == null){
+            System.out.println("Could not play a card");
+            //TODO HANDLE THIS SHIT
         }
+        else
+            System.out.println("They Have then choosen: "+ currentCard.title);
+
+
+        /*while (players.size() > 1){
+
+        }*/
         throw new NotImplementedException();
     }
 }

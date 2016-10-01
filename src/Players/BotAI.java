@@ -12,6 +12,13 @@ import java.util.Random;
  */
 public class BotAI {
     public BaseSuperTCard chooseCard(BaseSuperTCard currentCard, String currentCat, SuperTbasePlayer currentPlayer) {
+        if (currentCard == null){
+            for (BaseSuperTCard card : currentPlayer.hand){
+                if (card instanceof SuperTPlayCard){
+                    return card;
+                }
+            }
+        }
         for (BaseSuperTCard card : currentPlayer.hand) {
             if (card instanceof SuperTPlayCard && currentCard instanceof SuperTPlayCard){
                 if(card.isBetterThan((SuperTPlayCard) currentCard, currentCat)){
@@ -25,6 +32,12 @@ public class BotAI {
                 }
 
         }
+        for (BaseSuperTCard card : currentPlayer.hand){
+            if (card instanceof SuperTTrumpCard){
+                return card;
+            }
+        }
+        return null;
     }
 
     public String chooseCategory(String categories){
