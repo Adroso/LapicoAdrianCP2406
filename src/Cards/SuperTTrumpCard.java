@@ -15,4 +15,9 @@ public class SuperTTrumpCard extends BaseSuperTCard{
     public String toString() {
         return("\n" + title + " " + subtitle+ " " + categories);
     }
+
+    @Override
+    public boolean isBetterThan(SuperTPlayCard card, String category) {
+        return false;
+    }
 }

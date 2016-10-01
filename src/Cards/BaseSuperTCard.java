@@ -3,7 +3,7 @@ package Cards;
 /**
  * Created by Adroso360 on 3/09/2016.
  */
-public class BaseSuperTCard {
+public abstract class BaseSuperTCard {
     public String fileName;
     public String imageName;
     public String title;
@@ -24,4 +24,5 @@ public class BaseSuperTCard {
     public static String getTitle(){
         return "lol";
     }
+    public abstract boolean isBetterThan(SuperTPlayCard card, String category);
 }

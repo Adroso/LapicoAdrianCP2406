@@ -77,6 +77,22 @@ public class SuperTPlayCard extends BaseSuperTCard {
         }
 
     }
+    public boolean isBetterThan(SuperTPlayCard card, String category){
+    switch (category){
+        case "Hardness":
+            return this.highhardness > card.highhardness;
+        case "Specific gravity":
+            return  this.highspecGravity > card.highspecGravity;
+        case "Cleavage":
+            return this.findCleavage() > card.findCleavage();
+        case "Crustal abundance":
+            return this.findCrustalAb() > card.findCrustalAb();
+        case "Economic value":
+            return  this.findEcoValue() > card.findEcoValue();
+        default:
+            throw new  NullPointerException("Category Not Found With:  " + category);
+    }
+    }
     public int findCrustalAb(){
         switch (crustAbundance){
             case "ultratrace":
