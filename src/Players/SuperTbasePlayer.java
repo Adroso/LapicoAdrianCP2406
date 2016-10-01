@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class SuperTbasePlayer {
     public int position;
-    public ArrayList hand;
+    public ArrayList<BaseSuperTCard> hand;
     public abstract PlayerType getPlayerType();
 
 
@@ -21,7 +21,7 @@ public abstract class SuperTbasePlayer {
     }
     public String toString() {
         //handTest();
-        return String.valueOf((position) + "\nYour Cards: " + hand);
+        return String.valueOf((position));
     }
 
     public void setCard(ArrayList<BaseSuperTCard> cards) {

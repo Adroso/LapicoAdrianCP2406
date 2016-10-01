@@ -30,7 +30,7 @@ public class SuperTRound {
         else
             currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
 
-        System.out.println(currentCat);
+        System.out.println("Player: " + startingPlayer + " Has Choosen" + currentCat);
         while (players.size() > 1){
 
         }
