@@ -23,7 +23,7 @@ public class HumanHandle {
             System.out.println(i + " : " + localCats[i] );
         }
         int userInput = -1;
-        while (userInput < 0 || userInput > categories.length()-1) {
+        while (userInput < 0 || userInput > localCats.length-1) {
             try {
                 System.out.println("Enter Your choice2: ");
                 userInput = new Scanner(System.in).nextInt();
@@ -31,7 +31,6 @@ public class HumanHandle {
             catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input2");
             }
-
         }
         return localCats[userInput];
     }

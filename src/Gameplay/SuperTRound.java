@@ -1,5 +1,7 @@
 package Gameplay;
 import Cards.BaseSuperTCard;
+import Cards.SuperTPlayCard;
+import Cards.SuperTTrumpCard;
 import Gameplay.SuperTGame;
 import Players.BotAI;
 import Players.HumanHandle;
@@ -26,10 +28,12 @@ public class SuperTRound {
         SuperTbasePlayer currentPlayer = startingPlayer;
         String currentCat;
         BaseSuperTCard currentCard = null;
+
         if (currentPlayer.getPlayerType() == SuperTbasePlayer.PlayerType.HUMAN){
             currentCat = new HumanHandle().getCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
             System.out.println("You have choosen: "+ currentCat);
-            currentCard = new HumanHandle().getCard(currentCard,currentCat,currentPlayer);
+            //currentCard = new HumanHandle().getCard(currentCard,currentCat,currentPlayer);
+            currentCard = new HumanHandle().getCard(new SuperTTrumpCard("Slide55.jpg", "Slide55", "The Miner", "Economic value", "Economic value"),currentCat,currentPlayer);
         }
         if (currentPlayer.getPlayerType() == SuperTbasePlayer.PlayerType.BOT){
             currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");

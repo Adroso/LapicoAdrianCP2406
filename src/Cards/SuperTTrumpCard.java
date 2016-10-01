@@ -18,6 +18,6 @@ public class SuperTTrumpCard extends BaseSuperTCard{
 
     @Override
     public boolean isBetterThan(SuperTPlayCard card, String category) {
-        return false;
+        return true;
     }
 }
