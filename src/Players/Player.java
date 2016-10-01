@@ -1,22 +1,20 @@
 package Players;
 
-import Cards.BaseSuperTCard;
-import Cards.SuperTTrumpCard;
-import Cards.SuperTPlayCard;
-import Cards.SuperTDeck;
+import Cards.Card;
+import Cards.PlayCard;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Adroso360 on 30/09/2016.
  */
-public abstract class SuperTbasePlayer {
+public abstract class Player {
     public int position;
-    public ArrayList<BaseSuperTCard> hand;
+    public ArrayList<Card> hand;
     public abstract PlayerType getPlayerType();
 
 
-    public SuperTbasePlayer(int position){
+    public Player(int position){
         this.position = position;
     }
     public String toString() {
@@ -24,12 +22,12 @@ public abstract class SuperTbasePlayer {
         return String.valueOf((position));
     }
 
-    public void setCard(ArrayList<BaseSuperTCard> cards) {
+    public void setCard(ArrayList<Card> cards) {
         hand = cards;
     }
 
     public  void handTest(){
-        SuperTPlayCard lol = (SuperTPlayCard) hand.get(1);
+        PlayCard lol = (PlayCard) hand.get(1);
         System.out.println(lol.title);
 
     }

@@ -1,9 +1,8 @@
 package Players;
 
-import Cards.BaseSuperTCard;
-import Cards.SuperTPlayCard;
-import Cards.SuperTTrumpCard;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import Cards.Card;
+import Cards.PlayCard;
+import Cards.TrumpCard;
 
 import java.util.Random;
 
@@ -11,33 +10,33 @@ import java.util.Random;
  * Created by Adroso360 on 1/10/2016.
  */
 public class BotAI {
-    public BaseSuperTCard chooseCard(BaseSuperTCard currentCard, String currentCat, SuperTbasePlayer currentPlayer) {
+    public Card chooseCard(Card currentCard, String currentCat, Player currentPlayer) {
         if (currentCard == null){
-            for (BaseSuperTCard card : currentPlayer.hand){
-                if (card instanceof SuperTPlayCard){
+            for (Card card : currentPlayer.hand){
+                if (card instanceof PlayCard){
                     return card;
                 }
             }
         }
-        for (BaseSuperTCard card : currentPlayer.hand) {
-            if (card instanceof SuperTPlayCard && currentCard instanceof SuperTPlayCard){
-                if(card.isBetterThan((SuperTPlayCard) currentCard, currentCat)){
+        for (Card card : currentPlayer.hand) {
+            if (card instanceof PlayCard && currentCard instanceof PlayCard){
+                if(card.isBetterThan((PlayCard) currentCard, currentCat)){
                     return card;
                 }
 
             }
             else
-                if (currentCard instanceof SuperTTrumpCard && card instanceof SuperTPlayCard){
+                if (currentCard instanceof TrumpCard && card instanceof PlayCard){
                 return card;
                 }
 
         }
-        for (BaseSuperTCard card : currentPlayer.hand){
-            if (card instanceof SuperTTrumpCard){
+        for (Card card : currentPlayer.hand){
+            if (card instanceof TrumpCard){
                 return card;
             }
         }
-        return null;
+        return currentCard;
     }
 
     public String chooseCategory(String categories){

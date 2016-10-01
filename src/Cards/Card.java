@@ -3,14 +3,14 @@ package Cards;
 /**
  * Created by Adroso360 on 3/09/2016.
  */
-public abstract class BaseSuperTCard {
+public abstract class Card {
     public String fileName;
     public String imageName;
     public String title;
 
 
 
-    public BaseSuperTCard(String fileName, String imageName, String title) {
+    public Card(String fileName, String imageName, String title) {
         this.fileName = fileName;
         this.imageName = imageName;
         this.title = title;
@@ -24,5 +24,5 @@ public abstract class BaseSuperTCard {
     public static String getTitle(){
         return "lol";
     }
-    public abstract boolean isBetterThan(SuperTPlayCard card, String category);
+    public abstract boolean isBetterThan(PlayCard card, String category);
 }

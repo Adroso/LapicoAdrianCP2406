@@ -1,58 +1,79 @@
 package Gameplay;
-import Cards.BaseSuperTCard;
-import Cards.SuperTPlayCard;
-import Cards.SuperTTrumpCard;
-import Gameplay.SuperTGame;
+import Cards.Card;
+import Cards.PlayCard;
+import Cards.SuperTDeck;
+import Cards.TrumpCard;
 import Players.BotAI;
 import Players.HumanHandle;
-import Players.SuperTHumanplayer;
-import Players.SuperTbasePlayer;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import Players.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Adroso360 on 1/10/2016.
  */
 public class SuperTRound {
 
-    private final ArrayList<SuperTbasePlayer> players;
-    private final SuperTbasePlayer startingPlayer;
+    private final ArrayList<Player> players;
+    private final Player startingPlayer;
+    private final SuperTDeck deck;
 
-    public SuperTRound(ArrayList<SuperTbasePlayer> players, SuperTbasePlayer startingPlayer) {
+    public SuperTRound(ArrayList<Player> players, Player startingPlayer, SuperTDeck deck) {
         this.players = players;
         this.startingPlayer = startingPlayer;
+        this.deck = deck;
     }
 
-    public SuperTbasePlayer beginRound() {
-        SuperTbasePlayer currentPlayer = startingPlayer;
-        String currentCat;
-        BaseSuperTCard currentCard = null;
+    public Player beginRound() {
+        Player currentPlayer = startingPlayer;
+        String currentCat = findCategory(currentPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
+        Card currentCard = findPickCard(currentPlayer, currentCat, null);
+        Collections.rotate(players, players.indexOf(currentCard));
 
-        if (currentPlayer.getPlayerType() == SuperTbasePlayer.PlayerType.HUMAN){
-            currentCat = new HumanHandle().getCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
-            System.out.println("You have choosen: "+ currentCat);
-            //currentCard = new HumanHandle().getCard(currentCard,currentCat,currentPlayer);
-            currentCard = new HumanHandle().getCard(new SuperTTrumpCard("Slide55.jpg", "Slide55", "The Miner", "Economic value", "Economic value"),currentCat,currentPlayer);
+        // Round Handler for players left in game
+        while (players.size() > 1){
+            Collections.rotate(players, 1);
+            currentPlayer = players.get(0);
+            Card oldCard = currentCard;
+            currentCard = findPickCard(currentPlayer, currentCat, currentCard);
+            if(currentCard.equals(oldCard)){
+                System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
+                players.remove(currentPlayer);
+                currentPlayer.hand.add(deck.takeCard());
+            } else if(currentCard instanceof TrumpCard){
+                currentCat = findCategory(currentPlayer, ((TrumpCard) currentCard).categories);
+                currentPlayer.hand.remove(currentCard);
+            } else {
+                System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
+                currentPlayer.hand.remove(currentCard);
+            }
         }
-        if (currentPlayer.getPlayerType() == SuperTbasePlayer.PlayerType.BOT){
-            currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
-            System.out.println("Player: " + startingPlayer + " Has Choosen the Category:  " + currentCat);
+        players.get(0);
+    }
+    public Card findPickCard(Player currentPlayer, String currentCat, Card currentCard){
+        if (currentPlayer.getPlayerType() == Player.PlayerType.HUMAN){
+            currentCard = new HumanHandle().getCard(currentCard,currentCat,currentPlayer);
+        }
+        else
+        if (currentPlayer.getPlayerType() == Player.PlayerType.BOT){
             currentCard = new BotAI().chooseCard(null, currentCat,startingPlayer);
         }
-        else
-            currentCat = new BotAI().chooseCategory("Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
-        if (currentCard == null){
-            System.out.println("Could not play a card");
-            //TODO HANDLE THIS SHIT
-        }
-        else
-            System.out.println("They Have played: "+ currentCard.title);
-
-
-        while (players.size() > 1){
+        return currentCard;
+    }
+    public String findCategory(Player currentPlayer, String categories){
+        String currentCat = null;
+        if (currentPlayer.getPlayerType() == Player.PlayerType.HUMAN){
+            currentCat = new HumanHandle().getCategory(categories);
+            System.out.println("You have choosen: "+ currentCat);
 
         }
-        throw new NotImplementedException();
+        else
+        if (currentPlayer.getPlayerType() == Player.PlayerType.BOT) {
+            currentCat = new BotAI().chooseCategory(categories);
+            System.out.println("Player: " + currentPlayer + " Has Choosen the Category:  " + currentCat);
+        }
+        return currentCat;
+
     }
 }

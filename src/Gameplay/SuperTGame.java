@@ -1,17 +1,17 @@
 package Gameplay; /**
  * Created by Adroso360 on 3/09/2016.
  */
-import Cards.BaseSuperTCard;
-import Players.SuperTBotPlayer;
-import Players.SuperTHumanplayer;
+import Cards.Card;
+import Players.Bot;
+import Players.Hooman;
 import Cards.SuperTDeck;
-import Players.SuperTbasePlayer;
+import Players.Player;
 
 import java.util.*;
 public class SuperTGame {
     private static final int INITIAL_CARD_DEAL = 8 ;
     private int numPlayers;
-    private SuperTbasePlayer[] players;
+    private Player[] players;
     private SuperTDeck deck;
     public int yourPlayerId;
     public int randomDealer;
@@ -28,17 +28,17 @@ public class SuperTGame {
 
         //Handling the game just for the user
         selectYouasPlayer();
-        SuperTbasePlayer hupl = getHumanPlayer();
+        Player hupl = getHumanPlayer();
         showPlayer(hupl);
         new SuperTRound(arrayToList(players), players[0]).beginRound();
     }
 
 
-    private void showPlayer(SuperTbasePlayer hupl) {
+    private void showPlayer(Player hupl) {
         System.out.println("You are Player "+ hupl );
     }
 
-    private SuperTbasePlayer getHumanPlayer() {
+    private Player getHumanPlayer() {
         return players[yourPlayerId];
     }
 
@@ -57,20 +57,20 @@ public class SuperTGame {
     }
 
     public void dealRandomCardsToPlayers() {
-        players = new SuperTbasePlayer[numPlayers];
-        players[0] = new SuperTHumanplayer(0);
+        players = new Player[numPlayers];
+        players[0] = new Hooman(0);
         for (int i = 1; i < numPlayers; i++){
-            players[i] = new SuperTBotPlayer(i);
+            players[i] = new Bot(i);
 
         }
-        for (SuperTbasePlayer player: players) {
-            ArrayList<BaseSuperTCard> cards = deck.dealCards(INITIAL_CARD_DEAL);
+        for (Player player: players) {
+            ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard(cards);
         }
     }
-    public ArrayList<SuperTbasePlayer> arrayToList(SuperTbasePlayer[] players){
-       ArrayList<SuperTbasePlayer> newArrayList = new ArrayList<SuperTbasePlayer>();
-        for (SuperTbasePlayer superTbasePlayer:players){
+    public ArrayList<Player> arrayToList(Player[] players){
+       ArrayList<Player> newArrayList = new ArrayList<Player>();
+        for (Player superTbasePlayer:players){
             newArrayList.add(superTbasePlayer);
         }
         return newArrayList;
@@ -80,9 +80,9 @@ public class SuperTGame {
 //////////TEST CODE or OLD CODE///////////////
 //RETIRED Instances the number of player objects
     /*private void assignpositions() {
-        SuperTHumanplayer player = new SuperTHumanplayer(0);
+        Hooman player = new Hooman(0);
         for (int i = 1; i < numPlayers; i++) {
-            SuperTBotPlayer bplayer = new SuperTBotPlayer(i);
+            Bot bplayer = new Bot(i);
             System.out.println(bplayer);
         }
         System.out.println(player);

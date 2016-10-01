@@ -1,10 +1,9 @@
 package Players;
 
-import Cards.BaseSuperTCard;
-import Cards.SuperTPlayCard;
-import Cards.SuperTTrumpCard;
+import Cards.Card;
+import Cards.PlayCard;
+import Cards.TrumpCard;
 
-import java.lang.reflect.Array;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -35,7 +34,7 @@ public class HumanHandle {
         return localCats[userInput];
     }
 
-    public BaseSuperTCard getCard(BaseSuperTCard currentCard, String currentCat, SuperTbasePlayer currentPlayer) {
+    public Card getCard(Card currentCard, String currentCat, Player currentPlayer) {
         //handles if there is only 1 category passed in.
         for (int i = 0; i < currentPlayer.hand.size(); i++){
             System.out.println(i + " : " + currentPlayer.hand.get(i).title );
@@ -48,17 +47,17 @@ public class HumanHandle {
                 userInput = new Scanner(System.in).nextInt();
 
                 if(userInput == currentPlayer.hand.size()){
-                    return null;
+                    return currentCard;
                 }
             } catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input");
             }
-            if (currentCard instanceof SuperTPlayCard && !currentPlayer.hand.get(userInput).isBetterThan((SuperTPlayCard) currentCard,currentCat)){
+            if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard,currentCat)){
                 System.out.println(currentPlayer.hand.get(userInput).title + " is not better than " + currentCard.title);
                 userInput = -1;
             }
             else
-                if (currentCard instanceof SuperTTrumpCard){
+                if (currentCard instanceof TrumpCard){
                 return currentPlayer.hand.get(userInput);
                 }
         }

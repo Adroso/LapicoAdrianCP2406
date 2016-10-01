@@ -3,11 +3,11 @@ package Cards;
 /**
  * Created by Adroso360 on 29/09/2016.
  */
-public class SuperTTrumpCard extends BaseSuperTCard{
+public class TrumpCard extends Card {
     public String subtitle;
     public String categories;
 
-    public SuperTTrumpCard(String fileName, String imageName, String title, String subtitle, String categories) {
+    public TrumpCard(String fileName, String imageName, String title, String subtitle, String categories) {
         super(fileName, imageName, title);
         this.subtitle = subtitle;
         this.categories = categories;
@@ -17,7 +17,7 @@ public class SuperTTrumpCard extends BaseSuperTCard{
     }
 
     @Override
-    public boolean isBetterThan(SuperTPlayCard card, String category) {
+    public boolean isBetterThan(PlayCard card, String category) {
         return true;
     }
 }

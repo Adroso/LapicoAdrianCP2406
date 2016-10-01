@@ -1,12 +1,9 @@
 package Cards;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 /**
  * Created by Adroso360 on 29/09/2016.
  */
-public class SuperTPlayCard extends BaseSuperTCard {
+public class PlayCard extends Card {
     public String chemistry;
     public String classification;
     public String crysSystem;
@@ -19,7 +16,7 @@ public class SuperTPlayCard extends BaseSuperTCard {
     public String crustAbundance;
     public String ecoVal;
 
-    public SuperTPlayCard (String fileName, String imageName, String title, String chemistry, String classification, String crysSystem, String occurrence, double lowhardness, double highhardness, double lowspecGravity, double highspecGravity, String cleavage, String crustAbundance, String ecoVal) {
+    public PlayCard(String fileName, String imageName, String title, String chemistry, String classification, String crysSystem, String occurrence, double lowhardness, double highhardness, double lowspecGravity, double highspecGravity, String cleavage, String crustAbundance, String ecoVal) {
         super(fileName, imageName, title);
         this.chemistry = chemistry;
         this.classification = classification;
@@ -77,7 +74,7 @@ public class SuperTPlayCard extends BaseSuperTCard {
         }
 
     }
-    public boolean isBetterThan(SuperTPlayCard card, String category){
+    public boolean isBetterThan(PlayCard card, String category){
     switch (category){
         case "Hardness":
             return this.highhardness > card.highhardness;
