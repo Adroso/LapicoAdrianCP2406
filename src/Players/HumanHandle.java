@@ -25,12 +25,11 @@ public class HumanHandle {
         int userInput = -1;
         while (userInput < 0 || userInput > categories.length()-1) {
             try {
-                System.out.println("Enter Your choice: ");
+                System.out.println("Enter Your choice2: ");
                 userInput = new Scanner(System.in).nextInt();
-            } catch (InputMismatchException p2) {
-                System.out.println("Please Enter Valid Input");
-            } catch (ArrayIndexOutOfBoundsException p1){
-                System.out.println("Invalid input");
+            }
+            catch (InputMismatchException p2) {
+                System.out.println("Please Enter Valid Input2");
             }
 
         }
@@ -42,7 +41,7 @@ public class HumanHandle {
         for (int i = 0; i < currentPlayer.hand.size(); i++){
             System.out.println(i + " : " + currentPlayer.hand.get(i).title );
         }
-        System.out.println(currentPlayer.hand.size() + " :  Don't Play A Card");
+        System.out.println(currentPlayer.hand.size() + " : Don't Play A Card");
         int userInput = -1;
         while (userInput < 0 || userInput > currentPlayer.hand.size()) {
             try {
