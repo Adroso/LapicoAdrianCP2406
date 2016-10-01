@@ -22,7 +22,7 @@ public abstract class Card {
         }
 
     public static String getTitle(){
-        return "lol";
+        return "test";
     }
     public abstract boolean isBetterThan(PlayCard card, String category);
 }
