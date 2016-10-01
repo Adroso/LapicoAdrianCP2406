@@ -30,7 +30,7 @@ public class SuperTGame {
         selectYouasPlayer();
         SuperTbasePlayer hupl = getHumanPlayer();
         showPlayer(hupl);
-        new SuperTRound(arrayToList(players), players[startingPlay]).beginRound();
+        new SuperTRound(arrayToList(players), players[0]).beginRound();
     }
 
 
@@ -58,7 +58,8 @@ public class SuperTGame {
 
     public void dealRandomCardsToPlayers() {
         players = new SuperTbasePlayer[numPlayers];
-        for (int i = 0; i < numPlayers; i++){
+        players[0] = new SuperTHumanplayer(0);
+        for (int i = 1; i < numPlayers; i++){
             players[i] = new SuperTBotPlayer(i);
 
         }
