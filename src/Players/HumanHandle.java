@@ -52,14 +52,15 @@ public class HumanHandle {
             } catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input");
             }
-            if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard,currentCat)){
-                System.out.println(currentPlayer.hand.get(userInput).title + " is not better than " + currentCard.title);
-                userInput = -1;
-            }
-            else
-                if (currentCard instanceof TrumpCard){
-                return currentPlayer.hand.get(userInput);
+            if (userInput < 0 || userInput > currentPlayer.hand.size())
+                if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard,currentCat)){
+                    System.out.println(currentPlayer.hand.get(userInput).title + " is not better than " + currentCard.title);
+                    userInput = -1;
                 }
+                else
+                    if (currentCard instanceof TrumpCard){
+                    return currentPlayer.hand.get(userInput);
+                    }
         }
 
         return currentPlayer.hand.get(userInput);

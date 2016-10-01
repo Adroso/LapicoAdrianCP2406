@@ -30,7 +30,16 @@ public class SuperTGame {
         selectYouasPlayer();
         Player hupl = getHumanPlayer();
         showPlayer(hupl);
-        new SuperTRound(arrayToList(players), players[startingPlay], deck).beginRound();
+
+        Player startingPlayer = players[new Random().nextInt(players.length)];
+        ArrayList<Player> playersNotWonYet = arrayToList(players);
+        ArrayList<Player> playersWhoWon = new ArrayList<>();
+        while(playersNotWonYet.size() > 1){
+            startingPlayer =  new SuperTRound(arrayToList(players), startingPlayer, deck, playersNotWonYet, playersWhoWon).beginRound();
+        }
+        for(Player player: playersWhoWon){
+            System.out.println(playersWhoWon.indexOf(player) + "th : player" + player.position);
+        }
     }
 
 
@@ -42,7 +51,6 @@ public class SuperTGame {
         return players[yourPlayerId];
     }
 
-
     private void selectYouasPlayer() {
         yourPlayerId = 0;
     }
@@ -50,7 +58,7 @@ public class SuperTGame {
     public void selectDealer() {
         Random ran = new Random();
         randomDealer = ran.nextInt(numPlayers)+1;
-        startingPlay = randomDealer-1;
+        startingPlay = randomDealer+1;
         //TODO set dealer to true on slected number
         System.out.println("Player: " + randomDealer + " is the dealer" + "\n Player: " + (randomDealer-1 + " Will go First") );
 
