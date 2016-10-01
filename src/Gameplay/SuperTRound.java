@@ -29,6 +29,8 @@ public class SuperTRound {
         Player currentPlayer = startingPlayer;
         String currentCat = findCategory(currentPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
         Card currentCard = findPickCard(currentPlayer, currentCat, null);
+        System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
+        currentPlayer.hand.remove(currentCard);
         Collections.rotate(players, players.indexOf(currentCard));
 
         // Round Handler for players left in game
@@ -42,6 +44,7 @@ public class SuperTRound {
                 players.remove(currentPlayer);
                 currentPlayer.hand.add(deck.takeCard());
             } else if(currentCard instanceof TrumpCard){
+                System.out.println(currentPlayer.position + " played the trump card: " + currentCard.title);
                 currentCat = findCategory(currentPlayer, ((TrumpCard) currentCard).categories);
                 currentPlayer.hand.remove(currentCard);
             } else {
@@ -49,7 +52,7 @@ public class SuperTRound {
                 currentPlayer.hand.remove(currentCard);
             }
         }
-        players.get(0);
+        return players.get(0);
     }
     public Card findPickCard(Player currentPlayer, String currentCat, Card currentCard){
         if (currentPlayer.getPlayerType() == Player.PlayerType.HUMAN){

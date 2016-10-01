@@ -30,7 +30,7 @@ public class SuperTGame {
         selectYouasPlayer();
         Player hupl = getHumanPlayer();
         showPlayer(hupl);
-        new SuperTRound(arrayToList(players), players[0]).beginRound();
+        new SuperTRound(arrayToList(players), players[startingPlay], deck).beginRound();
     }
 
 
