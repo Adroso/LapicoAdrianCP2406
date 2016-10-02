@@ -34,12 +34,14 @@ public class SuperTRound {
 
     public RoundFinished beginRound() {
         System.out.println("<<<<<<<<<<<<<< NEW ROUND HAS STARTED >>>>>>>>>>>>>>");
+        sleep();
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             //System.out.println(currentPlayer.position + "posistion");
             //System.out.println(currentCard.title + "posistion");
             System.out.println(currentPlayer.position + " played the card: " + currentCard.toString());
+            sleep();
             currentPlayer.hand.remove(currentCard);
             didPlayerWin(currentPlayer);
         }
@@ -54,6 +56,7 @@ public class SuperTRound {
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
+                sleep();
                 players.remove(currentPlayer);
                 //Checks if the deck is empty upon drawing.
 
@@ -64,12 +67,14 @@ public class SuperTRound {
 
             } else if(currentCard instanceof TrumpCard){
                 System.out.println("Player: " + currentPlayer.position + " played the trump card: " + currentCard.toString());
+                sleep();
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
                 return new RoundFinished(findCategory(currentPlayer, ((TrumpCard) currentCard).categories), currentPlayer, RoundFinishedType.TRUMPCARD);
             } else {
                 System.out.println("Player: " + currentPlayer.position + " played the card: " + currentCard.toString());
+                sleep();
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
@@ -140,5 +145,13 @@ public class SuperTRound {
         }
         return currentCat;
 
+    }
+    // Adds a delay to souts
+    public void sleep(){
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
