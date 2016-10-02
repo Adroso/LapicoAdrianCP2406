@@ -30,6 +30,7 @@ public class SuperTGame {
         Player hupl = getHumanPlayer();
         showPlayer(hupl);
 
+        //Handles Round Winners and Overall Game winners
         Player startingPlayer = players[new Random().nextInt(players.length)];
         ArrayList<Player> playersNotWonYet = arrayToList(players);
         ArrayList<Player> playersWhoWon = new ArrayList<>();
@@ -77,6 +78,7 @@ public class SuperTGame {
             player.setCard(cards);
         }
     }
+    //Converts to List to be handled by the SuperTRound Class
     public ArrayList<Player> arrayToList(Player[] players){
        ArrayList<Player> newArrayList = new ArrayList<Player>();
         for (Player superTbasePlayer:players){

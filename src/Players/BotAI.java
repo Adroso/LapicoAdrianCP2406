@@ -9,6 +9,7 @@ import java.util.Random;
  * Created by Adroso360 on 1/10/2016.
  */
 public class BotAI {
+    // This is going to be basic bots, they just find what can be played, not much additional AI :P
     public Card chooseCard(Card currentCard, String currentCat, Player currentPlayer) {
         if (currentCard == null){
             for (Card card : currentPlayer.hand){

@@ -39,7 +39,7 @@ public class SuperTRound {
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             //System.out.println(currentPlayer.position + "posistion");
             //System.out.println(currentCard.title + "posistion");
-            System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
+            System.out.println(currentPlayer.position + " played the card: " + currentCard.toString());
             currentPlayer.hand.remove(currentCard);
             didPlayerWin(currentPlayer);
         }
@@ -63,13 +63,13 @@ public class SuperTRound {
                     System.out.println("No cards left in deck to draw!");
 
             } else if(currentCard instanceof TrumpCard){
-                System.out.println("Player: " + currentPlayer.position + " played the trump card: " + currentCard.title);
+                System.out.println("Player: " + currentPlayer.position + " played the trump card: " + currentCard.toString());
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
                 return new RoundFinished(findCategory(currentPlayer, ((TrumpCard) currentCard).categories), currentPlayer, RoundFinishedType.TRUMPCARD);
             } else {
-                System.out.println("Player: " + currentPlayer.position + " played the card: " + currentCard.title);
+                System.out.println("Player: " + currentPlayer.position + " played the card: " + currentCard.toString());
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
