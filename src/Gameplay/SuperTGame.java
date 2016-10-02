@@ -1,6 +1,7 @@
 package Gameplay; /**
  * Created by Adroso360 on 3/09/2016.
  */
+import ApplicationSetUp.SuperTSetUp;
 import Cards.Card;
 import Players.Bot;
 import Players.Human;
@@ -41,6 +42,7 @@ public class SuperTGame {
         for(Player player: playersWhoWon){
             System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
         }
+
     }
 
 
@@ -71,7 +73,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-       players[0] = new Human(0);
+        players[0] = new Human(0);
 
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);

@@ -6,10 +6,8 @@ import Gameplay.SuperTGame;
 import java.util.*;
 public class SuperTSetUp {
     public static void main(String[] args) {
-
-        boolean menuCheck = true;
         displayWelcome();
-        while (menuCheck) {
+        while (true) {
             displayMenu();
             int userChoice = getUserMenuInput();
             while (userChoice != 1 && userChoice != 2 && userChoice != 3) {
@@ -19,14 +17,12 @@ public class SuperTSetUp {
             }
             switch (userChoice) {
                 case 1:
-                    menuCheck =false;
                     startNewGame();
                     break;
                 case 2:
                     displayGameInfo();
                     break;
                 case 3:
-                    menuCheck = false;
                     System.exit(1);
                     break;
             }
