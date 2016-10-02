@@ -56,7 +56,7 @@ public class SuperTRound {
                     currentPlayer.hand.add(deck.takeCard());
                 }
                 catch (Exception p4){
-                    System.out.println("The Deck is Empty, Unable to draw A card.");
+                    System.out.println("The Deck is Empty, Player: " + currentPlayer+ " Was unable to draw A card.");
                 }
 
             } else if(currentCard instanceof TrumpCard){
