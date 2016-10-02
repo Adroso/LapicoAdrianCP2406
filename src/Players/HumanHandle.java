@@ -29,6 +29,8 @@ public class HumanHandle {
             }
             catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input2");
+            } catch (IndexOutOfBoundsException p6){
+                System.out.println("There is no Category at: " + userInput);
             }
         }
         return localCats[userInput];
@@ -51,6 +53,8 @@ public class HumanHandle {
                 }
             } catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Input");
+            } catch (IndexOutOfBoundsException p5){
+                System.out.println("There is no card at:" + userInput);
             }
             if (userInput > 0 || userInput < currentPlayer.hand.size())
                 if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard,currentCat)){
