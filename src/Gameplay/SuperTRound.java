@@ -15,8 +15,6 @@ import java.util.Collections;
  */
 public class SuperTRound {
 
-    //TODO Player Order Is messing up and Cross Referencing Cards
-
     private final ArrayList<Player> players;
     private final Player startingPlayer;
     private final SuperTDeck deck;
@@ -43,7 +41,8 @@ public class SuperTRound {
         didPlayerWin(currentPlayer);
         Collections.rotate(players, players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, - 1);
-        // Round Handler for players left in game
+
+        // Round Handler
         while (players.size() > 1){
             currentPlayer = players.get(0);
             Card oldCard = currentCard;
@@ -52,8 +51,14 @@ public class SuperTRound {
             if(currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
                 players.remove(currentPlayer);
+                //Checks if the deck is empty upon drawing.
+                try {
+                    currentPlayer.hand.add(deck.takeCard());
+                }
+                catch (Exception p4){
+                    System.out.println("The Deck is Empty, Unable to draw A card.");
+                }
 
-                currentPlayer.hand.add(deck.takeCard());
             } else if(currentCard instanceof TrumpCard){
                 System.out.println(currentPlayer.position + " played the trump card: " + currentCard.title);
                 currentCat = findCategory(currentPlayer, ((TrumpCard) currentCard).categories);

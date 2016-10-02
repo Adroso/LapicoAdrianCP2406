@@ -88,8 +88,8 @@ public class SuperTDeck {
     }
 
     public Card takeCard() {
-        return cards.remove(0);
-    }
+        return cards.remove(0);}
+
 }
 
 //////////Testing Deck//////////

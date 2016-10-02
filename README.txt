@@ -4,7 +4,9 @@ By Adrian Lapico >>> Adroso360
 
 This is a game designed by to help players learn about the properties
 and uses of economically-significant and common rock-forming minerals.
-The pack consists of 54 mineral cards and 6 “supertrump” cards.
+
+The deck consists of 54 mineral cards and 6 “supertrump” cards.
+
 Each mineral card includes information about the mineral such as the generic chemical formula,
 the classification, crystal system, the geological environment where the mineral is
 commonly found or formed (igneous, metamorphic, sedimentary, or the mantle), as well as information in the
