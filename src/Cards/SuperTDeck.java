@@ -90,6 +90,10 @@ public class SuperTDeck {
     public Card takeCard() {
         return cards.remove(0);}
 
+    public int count(){
+        return cards.size();
+    }
+
 }
 
 //////////Testing Deck//////////

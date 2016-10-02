@@ -33,7 +33,8 @@ public class PlayCard extends Card {
 
     }
     public String toString() {
-        return("\n" + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
+        //return("\n" + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
+        return ("\n <<<<<<< MINERAL CARD >>>>>> \n" + "Chemistry: " +chemistry + "\nClassification: " +classification + "\nCrystal System: "+crysSystem + "\n Occurrence: "+occurrence +"\n ---------------------------" + "\n Hardness: " +highhardness+"\n Specific Gravity: "+highspecGravity+"\n Cleavage: "+cleavage+"\n Crustal Abundance: "+crustAbundance+"\nEconomic Value: "+ecoVal+"\n <<<<<<< *********** >>>>>>>\n");
     }
 
     public int findCleavage(){

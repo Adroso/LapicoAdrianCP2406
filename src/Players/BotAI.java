@@ -36,6 +36,10 @@ public class BotAI {
                 return card;
             }
         }
+        if(currentCard == null){
+            System.out.println(currentPlayer.hand.size());
+            throw new NullPointerException("Current card is null");
+        }
         return currentCard;
     }
 

@@ -1,6 +1,5 @@
 package Gameplay;
 import Cards.Card;
-import Cards.PlayCard;
 import Cards.SuperTDeck;
 import Cards.TrumpCard;
 import Players.BotAI;
@@ -16,29 +15,35 @@ import java.util.Collections;
 public class SuperTRound {
 
     private final ArrayList<Player> players;
-    private final Player startingPlayer;
+    private Player currentPlayer;
     private final SuperTDeck deck;
     private final ArrayList<Player> playersNotWonYet;
     private final ArrayList<Player> playersWhoWon;
+    private final String currentCat;
+    private final RoundFinishedType roundFinishedType;
 
-    public SuperTRound(ArrayList<Player> players, Player startingPlayer, SuperTDeck deck, ArrayList<Player> playersNotWonYet, ArrayList<Player> playersWhoWon) {
+    public SuperTRound(ArrayList<Player> players, RoundFinished roundFinished, SuperTDeck deck, ArrayList<Player> playersNotWonYet, ArrayList<Player> playersWhoWon) {
         this.playersNotWonYet = playersNotWonYet;
         this.playersWhoWon = playersWhoWon;
         this.players = players;
-        this.startingPlayer = startingPlayer;
+        this.currentPlayer = roundFinished.getPlayer();
+        this.currentCat = roundFinished.getCat();
+        this.roundFinishedType = roundFinished.getRoundFinishType();
         this.deck = deck;
     }
 
-    public Player beginRound() {
+    public RoundFinished beginRound() {
         System.out.println("NEW ROUND HAS STARTED");
-        Player currentPlayer = startingPlayer;
-        String currentCat = findCategory(currentPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity");
-        Card currentCard = findPickCard(currentPlayer, currentCat, null);
-        System.out.println(currentPlayer.position + "posistion");
-        System.out.println(currentCard.title + "posistion");
-        System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
-        currentPlayer.hand.remove(currentCard);
-        didPlayerWin(currentPlayer);
+        Card currentCard = null;
+        if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
+            currentCard = findPickCard(currentPlayer, currentCat, null);
+            System.out.println(currentPlayer.position + "posistion");
+            System.out.println(currentCard.title + "posistion");
+            System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
+            currentPlayer.hand.remove(currentCard);
+            didPlayerWin(currentPlayer);
+        }
+
         Collections.rotate(players, players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, - 1);
 
@@ -47,31 +52,60 @@ public class SuperTRound {
             currentPlayer = players.get(0);
             Card oldCard = currentCard;
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
-            didPlayerWin(currentPlayer);
-            if(currentCard.equals(oldCard)){
+            if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
                 players.remove(currentPlayer);
                 //Checks if the deck is empty upon drawing.
-                try {
+
+                if(deck.count() > 0)
                     currentPlayer.hand.add(deck.takeCard());
-                }
-                catch (Exception p4){
-                    System.out.println("The Deck is Empty, Player: " + currentPlayer+ " Was unable to draw A card.");
-                }
+                else
+                    System.out.println("no cards left in deck to draw");
 
             } else if(currentCard instanceof TrumpCard){
                 System.out.println(currentPlayer.position + " played the trump card: " + currentCard.title);
-                currentCat = findCategory(currentPlayer, ((TrumpCard) currentCard).categories);
                 currentPlayer.hand.remove(currentCard);
+                didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
+                return new RoundFinished(findCategory(currentPlayer, ((TrumpCard) currentCard).categories), currentPlayer, RoundFinishedType.TRUMPCARD);
             } else {
                 System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
                 currentPlayer.hand.remove(currentCard);
+                didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
             }
         }
         System.out.println("Player who won: " + players.get(0));
-        return players.get(0);
+        return new RoundFinished(findCategory(players.get(0), "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"), players.get(0), RoundFinishedType.STANDARD);
+    }
+
+    public static class RoundFinished {
+        private final String cat;
+        private final Player player;
+        private final RoundFinishedType roundFinishType;
+
+        public RoundFinished(String cat, Player player, RoundFinishedType roundFinishType) {
+            this.cat = cat;
+            this.player = player;
+            this.roundFinishType = roundFinishType;
+        }
+
+        public String getCat() {
+            return cat;
+        }
+
+        public Player getPlayer() {
+            return player;
+        }
+
+        public RoundFinishedType getRoundFinishType() {
+            return roundFinishType;
+        }
+    }
+
+    public enum RoundFinishedType {
+        STANDARD,
+        TRUMPCARD
     }
 
     private void didPlayerWin(Player currentPlayer) {
@@ -79,6 +113,7 @@ public class SuperTRound {
             System.out.println(currentPlayer.position + " won and has no cards!");
             playersNotWonYet.remove(currentPlayer);
             playersWhoWon.add(currentPlayer);
+            players.remove(currentPlayer);
         }
     }
 
@@ -92,7 +127,7 @@ public class SuperTRound {
         }
         return currentCard;
     }
-    public String findCategory(Player currentPlayer, String categories){
+    public static String findCategory(Player currentPlayer, String categories){
         String currentCat = null;
         if (currentPlayer.getPlayerType() == Player.PlayerType.HUMAN){
             currentCat = new HumanHandle().getCategory(categories);

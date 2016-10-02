@@ -34,8 +34,9 @@ public class SuperTGame {
         Player startingPlayer = players[new Random().nextInt(players.length)];
         ArrayList<Player> playersNotWonYet = arrayToList(players);
         ArrayList<Player> playersWhoWon = new ArrayList<>();
+        SuperTRound.RoundFinished roundFinished = new SuperTRound.RoundFinished(SuperTRound.findCategory(startingPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"), startingPlayer, SuperTRound.RoundFinishedType.STANDARD);
         while(playersNotWonYet.size() > 1){
-            startingPlayer =  new SuperTRound(arrayToList(players), startingPlayer, deck, playersNotWonYet, playersWhoWon).beginRound();
+            roundFinished =  new SuperTRound(arrayToList(players), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
         }
         for(Player player: playersWhoWon){
             System.out.println(playersWhoWon.indexOf(player) + "th : player" + player.position);
@@ -65,11 +66,16 @@ public class SuperTGame {
 
     public void dealRandomCardsToPlayers() {
         players = new Player[numPlayers];
-        players[0] = new Hooman(0);
-        for (int i = 1; i < numPlayers; i++){
+
+        for (int i = 0; i < numPlayers; i++){
             players[i] = new Bot(i);
 
         }
+//        players[0] = new Hooman(0);
+//        for (int i = 1; i < numPlayers; i++){
+//            players[i] = new Bot(i);
+//
+//        }
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard(cards);

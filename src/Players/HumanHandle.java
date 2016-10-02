@@ -38,7 +38,7 @@ public class HumanHandle {
     public Card getCard(Card currentCard, String currentCat, Player currentPlayer) {
         //handles if there is only 1 category passed in.
         for (int i = 0; i < currentPlayer.hand.size(); i++) {
-            System.out.println(i + " : " + currentPlayer.hand.get(i).title);
+            System.out.println(i + " : " + currentPlayer.hand.get(i).toString());
         }
         System.out.println(currentPlayer.hand.size() + " : Don't Play A Card");
         int userInput = -1;
