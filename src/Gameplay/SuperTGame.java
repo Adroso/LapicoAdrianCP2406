@@ -45,7 +45,7 @@ public class SuperTGame {
 
 
     private void showPlayer(Player hupl) {
-        System.out.println("You are Player "+ hupl );
+        System.out.println("You are Player "+ hupl +"\n");
     }
 
     private Player getHumanPlayer() {
@@ -60,7 +60,7 @@ public class SuperTGame {
         Random ran = new Random();
         randomDealer = ran.nextInt(numPlayers)+1;
         startingPlay = randomDealer+1;
-        System.out.println("Player: " + randomDealer + " is the dealer" + "\n Player: " + (randomDealer-1 + " Will go First") );
+        System.out.println("Player: " + randomDealer + " is the dealer"+ "\n");
 
     }
 
@@ -71,7 +71,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-//        players[0] = new Hooman(0);
+       players[0] = new Hooman(0);
 //        for (int i = 1; i < numPlayers; i++){
 //            players[i] = new Bot(i);
 //

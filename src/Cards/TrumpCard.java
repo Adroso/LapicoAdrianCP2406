@@ -14,7 +14,7 @@ public class TrumpCard extends Card {
     }
     public String toString() {
         //return("\n" + title + " " + subtitle+ " " + categories);
-        return ("\n |||||||||* TRUMP CARD *|||||||| \n" +"Title: "+ title +"\nChange trumps category to: " + categories+"\n<<<<<<< *********** >>>>>>>\n");
+        return ("\n |||||||||* TRUMP CARD *|||||||| \n" +"Title: "+ title +"\nChange trumps category to: " + categories+"\n<<<<<<< **************** >>>>>>>\n");
     }
 
     @Override

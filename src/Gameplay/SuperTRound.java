@@ -37,8 +37,8 @@ public class SuperTRound {
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
-            System.out.println(currentPlayer.position + "posistion");
-            System.out.println(currentCard.title + "posistion");
+            //System.out.println(currentPlayer.position + "posistion");
+            //System.out.println(currentCard.title + "posistion");
             System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
             currentPlayer.hand.remove(currentCard);
             didPlayerWin(currentPlayer);

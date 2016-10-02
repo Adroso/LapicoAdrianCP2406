@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class HumanHandle {
 
     public String getCategory(String categories) {
+        System.out.println("\n Choose a Category: \n");
         String[] localCats = categories.split(", ");
         //handles if there is only 1 category passed in.
         if (localCats.length == 1) {
@@ -36,6 +37,7 @@ public class HumanHandle {
     }
 
     public Card getCard(Card currentCard, String currentCat, Player currentPlayer) {
+        System.out.println("\nChoose A Card: \n");
         //handles if there is only 1 category passed in.
         for (int i = 0; i < currentPlayer.hand.size(); i++) {
             System.out.println(i + " : " + currentPlayer.hand.get(i).toString());
