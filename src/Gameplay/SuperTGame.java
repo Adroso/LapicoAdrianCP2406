@@ -36,7 +36,7 @@ public class SuperTGame {
         ArrayList<Player> playersWhoWon = new ArrayList<>();
         SuperTRound.RoundFinished roundFinished = new SuperTRound.RoundFinished(SuperTRound.findCategory(startingPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"), startingPlayer, SuperTRound.RoundFinishedType.STANDARD);
         while(playersNotWonYet.size() > 1){
-            roundFinished =  new SuperTRound(arrayToList(players), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
+            roundFinished =  new SuperTRound(arrayToList(playersNotWonYet.toArray(new Player[playersNotWonYet.size()])), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
         }
         for(Player player: playersWhoWon){
             System.out.println(playersWhoWon.indexOf(player) + "th : player" + player.position);

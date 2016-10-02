@@ -36,7 +36,7 @@ public class SuperTRound {
         System.out.println("NEW ROUND HAS STARTED");
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
-            currentCard = findPickCard(currentPlayer, currentCat, null);
+            currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             System.out.println(currentPlayer.position + "posistion");
             System.out.println(currentCard.title + "posistion");
             System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
@@ -75,7 +75,6 @@ public class SuperTRound {
                 Collections.rotate(players, -1);
             }
         }
-        System.out.println("Player who won: " + players.get(0));
         return new RoundFinished(findCategory(players.get(0), "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"), players.get(0), RoundFinishedType.STANDARD);
     }
 
