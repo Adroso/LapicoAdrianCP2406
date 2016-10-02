@@ -3,7 +3,7 @@ package Gameplay; /**
  */
 import Cards.Card;
 import Players.Bot;
-import Players.Hooman;
+import Players.Human;
 import Cards.SuperTDeck;
 import Players.Player;
 
@@ -71,7 +71,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-       players[0] = new Hooman(0);
+       players[0] = new Human(0);
 //        for (int i = 1; i < numPlayers; i++){
 //            players[i] = new Bot(i);
 //
@@ -93,7 +93,7 @@ public class SuperTGame {
 //////////TEST CODE or OLD CODE///////////////
 //RETIRED Instances the number of player objects
     /*private void assignpositions() {
-        Hooman player = new Hooman(0);
+        Human player = new Human(0);
         for (int i = 1; i < numPlayers; i++) {
             Bot bplayer = new Bot(i);
             System.out.println(bplayer);

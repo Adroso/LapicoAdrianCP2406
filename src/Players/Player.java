@@ -18,7 +18,6 @@ public abstract class Player {
         this.position = position;
     }
     public String toString() {
-        //handTest();
         return String.valueOf((position));
     }
 
@@ -26,11 +25,6 @@ public abstract class Player {
         hand = cards;
     }
 
-    public  void handTest(){
-        PlayCard lol = (PlayCard) hand.get(1);
-        System.out.println(lol.title);
-
-    }
     public enum PlayerType{
         BOT,
         HUMAN,

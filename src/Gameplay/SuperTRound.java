@@ -33,7 +33,7 @@ public class SuperTRound {
     }
 
     public RoundFinished beginRound() {
-        System.out.println("NEW ROUND HAS STARTED");
+        System.out.println("<<<<<<<<<<<<<< NEW ROUND HAS STARTED >>>>>>>>>>>>>>");
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
@@ -60,16 +60,16 @@ public class SuperTRound {
                 if(deck.count() > 0)
                     currentPlayer.hand.add(deck.takeCard());
                 else
-                    System.out.println("no cards left in deck to draw");
+                    System.out.println("No cards left in deck to draw!");
 
             } else if(currentCard instanceof TrumpCard){
-                System.out.println(currentPlayer.position + " played the trump card: " + currentCard.title);
+                System.out.println("Player: " + currentPlayer.position + " played the trump card: " + currentCard.title);
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
                 return new RoundFinished(findCategory(currentPlayer, ((TrumpCard) currentCard).categories), currentPlayer, RoundFinishedType.TRUMPCARD);
             } else {
-                System.out.println(currentPlayer.position + " played the card: " + currentCard.title);
+                System.out.println("Player: " + currentPlayer.position + " played the card: " + currentCard.title);
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);
@@ -109,7 +109,7 @@ public class SuperTRound {
 
     private void didPlayerWin(Player currentPlayer) {
         if(currentPlayer.hand.size() == 0){
-            System.out.println(currentPlayer.position + " won and has no cards!");
+            System.out.println("Player: " + currentPlayer.position + " WON! as they have no cards!");
             playersNotWonYet.remove(currentPlayer);
             playersWhoWon.add(currentPlayer);
             players.remove(currentPlayer);
@@ -130,13 +130,13 @@ public class SuperTRound {
         String currentCat = null;
         if (currentPlayer.getPlayerType() == Player.PlayerType.HUMAN){
             currentCat = new HumanHandle().getCategory(categories);
-            System.out.println("You have choosen: "+ currentCat);
+            System.out.println("You have chosen: "+ currentCat);
 
         }
         else
         if (currentPlayer.getPlayerType() == Player.PlayerType.BOT) {
             currentCat = new BotAI().chooseCategory(categories);
-            System.out.println("Player: " + currentPlayer + " Has Choosen the Category:  " + currentCat);
+            System.out.println("Player: " + currentPlayer + " Has Chosen the Category:  " + currentCat);
         }
         return currentCat;
 

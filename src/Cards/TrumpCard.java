@@ -13,8 +13,8 @@ public class TrumpCard extends Card {
         this.categories = categories;
     }
     public String toString() {
-        //return("\n" + title + " " + subtitle+ " " + categories);
-        return ("\n |||||||||* TRUMP CARD *|||||||| \n" +"Title: "+ title +"\nChange trumps category to: " + categories+"\n<<<<<<< **************** >>>>>>>\n");
+
+        return ("\n |||||||||* TRUMP CARD *|||||||| \n" +"Title: "+ title +"\n\nChange trumps category to: " + categories+"\n\n<<<<<<< **************** >>>>>>>\n");
     }
 
     @Override

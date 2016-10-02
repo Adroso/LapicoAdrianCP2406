@@ -33,10 +33,10 @@ public class PlayCard extends Card {
 
     }
     public String toString() {
-        //return("\n" + title+ " "  + chemistry+ " "  + classification+ " "  +crysSystem+ " " +occurrence+ " " +lowhardness+ " " +highhardness+ " " +lowspecGravity+ " " +highspecGravity+ " " +cleavage+ " " +crustAbundance+ " " +ecoVal);
         return ("\n <<<<<<< MINERAL CARD >>>>>> \n" + "Chemistry: " +chemistry + "\nClassification: " +classification + "\nCrystal System: "+crysSystem + "\n Occurrence: "+occurrence +"\n ---------------------------" + "\n Hardness: " +highhardness+"\n Specific Gravity: "+highspecGravity+"\n Cleavage: "+cleavage+"\n Crustal Abundance: "+crustAbundance+"\nEconomic Value: "+ecoVal+"\n <<<<<<< *********** >>>>>>>\n");
     }
 
+// Section on Converting String values to Ints to be used for comparison of cards during gameplay
     public int findCleavage(){
         switch (cleavage){
             case "none":

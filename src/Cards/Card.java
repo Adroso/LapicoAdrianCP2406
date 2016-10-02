@@ -1,5 +1,4 @@
 package Cards;
-
 /**
  * Created by Adroso360 on 3/09/2016.
  */
@@ -21,8 +20,5 @@ public abstract class Card {
             return(fileName + " " + imageName + " " + title);
         }
 
-    public static String getTitle(){
-        return "test";
-    }
     public abstract boolean isBetterThan(PlayCard card, String category);
 }
