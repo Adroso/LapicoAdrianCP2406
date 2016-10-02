@@ -21,7 +21,6 @@ public class SuperTGame {
         deck = new SuperTDeck();
         this.numPlayers = numPlayers;
         System.out.println("Creating New Game of  " + numPlayers +" Players.........");
-        // RETIRED assignpositions();
         selectDealer();
         new SuperTDeck();
         dealRandomCardsToPlayers();
@@ -39,7 +38,7 @@ public class SuperTGame {
             roundFinished =  new SuperTRound(arrayToList(playersNotWonYet.toArray(new Player[playersNotWonYet.size()])), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
         }
         for(Player player: playersWhoWon){
-            System.out.println(playersWhoWon.indexOf(player) + "th : player" + player.position);
+            System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
         }
     }
 
@@ -72,10 +71,7 @@ public class SuperTGame {
 
         }
        players[0] = new Human(0);
-//        for (int i = 1; i < numPlayers; i++){
-//            players[i] = new Bot(i);
-//
-//        }
+
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);
             player.setCard(cards);

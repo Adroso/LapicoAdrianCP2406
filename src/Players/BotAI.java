@@ -3,7 +3,6 @@ package Players;
 import Cards.Card;
 import Cards.PlayCard;
 import Cards.TrumpCard;
-
 import java.util.Random;
 
 /**
@@ -38,7 +37,7 @@ public class BotAI {
         }
         if(currentCard == null){
             System.out.println(currentPlayer.hand.size());
-            throw new NullPointerException("Current card is null");
+            throw new NullPointerException("Current card is null :(");
         }
         return currentCard;
     }

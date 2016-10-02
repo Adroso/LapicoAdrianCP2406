@@ -1,9 +1,7 @@
 package Players;
-
 import Cards.Card;
 import Cards.PlayCard;
 import Cards.TrumpCard;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

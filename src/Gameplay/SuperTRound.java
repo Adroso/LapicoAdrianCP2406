@@ -43,7 +43,7 @@ public class SuperTRound {
             currentPlayer.hand.remove(currentCard);
             didPlayerWin(currentPlayer);
         }
-
+        //Handles current player cycle
         Collections.rotate(players, players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, - 1);
 

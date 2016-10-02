@@ -35,8 +35,8 @@ public class SuperTSetUp {
 
     private static void displayGameInfo() {
         System.out.println("This is a game designed by to help players learn about the properties\n" +
-                "and uses of economically-significant and common rock-forming minerals.\n" +
-                "The pack consists of 54 mineral cards and 6 “supertrump” cards.\n" +
+                "and uses of economically-significant and common rock-forming minerals.\n\n" +
+                "The deck consists of 54 mineral cards and 6 “supertrump” cards.\n\n" +
                 "Each mineral card includes information about the mineral such as the generic chemical formula,\n" +
                 "the classification, crystal system, the geological environment where the mineral is\n" +
                 "commonly found or formed (igneous, metamorphic, sedimentary, or the mantle), as well as information in the\n" +
@@ -46,7 +46,7 @@ public class SuperTSetUp {
                 "Earths crust (continental and oceanic) and value to modern societies.\n" +
                 "\n" +
                 "Number of players: 3 to 5\n" +
-                "\n" +
+                "\n\n" +
                 "Objective: To be the first player to lose all of your cards");
 
     }
