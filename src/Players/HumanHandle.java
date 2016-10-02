@@ -24,11 +24,11 @@ public class HumanHandle {
         int userInput = -1;
         while (userInput < 0 || userInput > localCats.length-1) {
             try {
-                System.out.println("Enter Your choice2: ");
+                System.out.println("Enter Your choice: ");
                 userInput = new Scanner(System.in).nextInt();
             }
             catch (InputMismatchException p2) {
-                System.out.println("Please Enter Valid Input2");
+                System.out.println("Please Enter Valid Number Input");
             } catch (IndexOutOfBoundsException p6){
                 System.out.println("There is no Category at: " + userInput);
             }
@@ -52,7 +52,7 @@ public class HumanHandle {
                     return currentCard;
                 }
             } catch (InputMismatchException p2) {
-                System.out.println("Please Enter Valid Input");
+                System.out.println("Please Enter Valid Number Input");
             } catch (IndexOutOfBoundsException p5){
                 System.out.println("There is no card at:" + userInput);
             }
