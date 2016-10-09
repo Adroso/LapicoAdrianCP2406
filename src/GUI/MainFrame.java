@@ -27,11 +27,14 @@ public class MainFrame extends JFrame {
         mm.add(startPrompt, BorderLayout.CENTER);
         mm.add(quitPrompt, BorderLayout.LINE_END);
 
-        infoPrompt.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Hi");
-            }
+        infoPrompt.addActionListener(e -> JOptionPane.showMessageDialog(null, "Hi"));
+
+        quitPrompt.addActionListener(e -> System.exit(1));
+
+        startPrompt.addActionListener(e -> {
+            JOptionPane.showInputDialog(null, "GIVE ME YOUR MONEY");
+
         });
     }
+
 }
