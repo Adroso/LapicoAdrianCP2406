@@ -31,7 +31,7 @@ public class SuperTGame {
         Player hupl = getHumanPlayer();
         showPlayer(hupl);
 
-        //Handles Round Winners and Overall Game winners
+        //Handles Round Winners and Overall Game winners.
         Player startingPlayer = players[new Random().nextInt(players.length)];
         ArrayList<Player> playersNotWonYet = arrayToList(players);
         ArrayList<Player> playersWhoWon = new ArrayList<>();
