@@ -30,16 +30,7 @@ public class MenuW extends JFrame {
 
         startGameButton.addActionListener(e -> {
             setVisible(false);
-
-
+            new GameW();
         });
     }
-
-
-
-
-
-
-
-
 }

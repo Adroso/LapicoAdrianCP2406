@@ -44,8 +44,6 @@ public class SuperTGame {
         }
 
     }
-
-
     private void showPlayer(Player hupl) {
         System.out.println("You are Player "+ hupl +"\n");
     }
@@ -63,7 +61,6 @@ public class SuperTGame {
         randomDealer = ran.nextInt(numPlayers)+1;
         startingPlay = randomDealer+1;
         System.out.println("Player: " + randomDealer + " is the dealer"+ "\n");
-
     }
 
     public void dealRandomCardsToPlayers() {
@@ -89,14 +86,3 @@ public class SuperTGame {
         return newArrayList;
     }
 }
-
-//////////TEST CODE or OLD CODE///////////////
-//RETIRED Instances the number of player objects
-    /*private void assignpositions() {
-        Human player = new Human(0);
-        for (int i = 1; i < numPlayers; i++) {
-            Bot bplayer = new Bot(i);
-            System.out.println(bplayer);
-        }
-        System.out.println(player);
-    }*/
