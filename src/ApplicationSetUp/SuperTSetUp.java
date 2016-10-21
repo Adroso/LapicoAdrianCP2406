@@ -53,7 +53,7 @@ public class SuperTSetUp {
             System.out.println("Invalid Input");
             numPlayers = getNumPlayers();
         }
-        SuperTGame game = new SuperTGame(numPlayers);
+        //SuperTGame game = new SuperTGame(numPlayers, this);
         /*game.selectDealer();*/
         /*System.out.println(Cards.SuperTDeck.Deckbuilder(1));*/
         /*game.dealRandomCardsToPlayers();*/

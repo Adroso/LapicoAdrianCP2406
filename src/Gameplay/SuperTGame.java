@@ -1,10 +1,9 @@
 package Gameplay; /**
  * Created by Adroso360 on 3/09/2016.
  */
-import ApplicationSetUp.SuperTSetUp;
 import Cards.Card;
+import GUI.GameW;
 import Players.Bot;
-import Players.Human;
 import Cards.SuperTDeck;
 import Players.Player;
 
@@ -18,7 +17,7 @@ public class SuperTGame {
     public int randomDealer;
     public int startingPlay;
 
-    public SuperTGame(int numPlayers) {
+    public SuperTGame(int numPlayers, GameW gameW) {
         deck = new SuperTDeck();
         this.numPlayers = numPlayers;
         System.out.println("Creating New Game of  " + numPlayers +" Players.........");
@@ -37,7 +36,7 @@ public class SuperTGame {
         ArrayList<Player> playersWhoWon = new ArrayList<>();
         SuperTRound.RoundFinished roundFinished = new SuperTRound.RoundFinished(SuperTRound.findCategory(startingPlayer, "Cleavage, Crustal abundance, Economic value, Hardness, Specific gravity"), startingPlayer, SuperTRound.RoundFinishedType.STANDARD);
         while(playersNotWonYet.size() > 1){
-            roundFinished =  new SuperTRound(arrayToList(playersNotWonYet.toArray(new Player[playersNotWonYet.size()])), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
+            roundFinished =  new SuperTRound(gameW,arrayToList(playersNotWonYet.toArray(new Player[playersNotWonYet.size()])), roundFinished, deck, playersNotWonYet, playersWhoWon).beginRound();
         }
         for(Player player: playersWhoWon){
             System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
@@ -70,7 +69,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-        players[0] = new Human(0);
+        //players[0] = new Human(0);
 
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);

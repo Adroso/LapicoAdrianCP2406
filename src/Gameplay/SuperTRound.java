@@ -2,6 +2,7 @@ package Gameplay;
 import Cards.Card;
 import Cards.SuperTDeck;
 import Cards.TrumpCard;
+import GUI.GameW;
 import Players.BotAI;
 import Players.HumanHandle;
 import Players.Player;
@@ -15,6 +16,7 @@ import java.util.Collections;
 public class SuperTRound {
 
     private final ArrayList<Player> players;
+    private final GameW gameW;
     private Player currentPlayer;
     private final SuperTDeck deck;
     private final ArrayList<Player> playersNotWonYet;
@@ -22,7 +24,7 @@ public class SuperTRound {
     private final String currentCat;
     private final RoundFinishedType roundFinishedType;
 
-    public SuperTRound(ArrayList<Player> players, RoundFinished roundFinished, SuperTDeck deck, ArrayList<Player> playersNotWonYet, ArrayList<Player> playersWhoWon) {
+    public SuperTRound(GameW gameW, ArrayList<Player> players, RoundFinished roundFinished, SuperTDeck deck, ArrayList<Player> playersNotWonYet, ArrayList<Player> playersWhoWon) {
         this.playersNotWonYet = playersNotWonYet;
         this.playersWhoWon = playersWhoWon;
         this.players = players;
@@ -30,6 +32,7 @@ public class SuperTRound {
         this.currentCat = roundFinished.getCat();
         this.roundFinishedType = roundFinished.getRoundFinishType();
         this.deck = deck;
+        this.gameW = gameW;
     }
 
     public RoundFinished beginRound() {
@@ -38,8 +41,9 @@ public class SuperTRound {
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
-            //System.out.println(currentPlayer.position + "posistion");
-            //System.out.println(currentCard.title + "posistion");
+            //GUI
+            gameW.displayCard(currentCard.fileName);
+
             System.out.println(currentPlayer.position + " played the card: " + currentCard.toString());
             sleep();
             currentPlayer.hand.remove(currentCard);
@@ -54,6 +58,7 @@ public class SuperTRound {
             currentPlayer = players.get(0);
             Card oldCard = currentCard;
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
+            gameW.displayCard(currentCard.fileName);
             if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
                 sleep();
@@ -149,7 +154,7 @@ public class SuperTRound {
     // Adds a delay to souts
     public void sleep(){
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
