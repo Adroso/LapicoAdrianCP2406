@@ -67,7 +67,7 @@ public class SuperTGame {
         players = new Player[numPlayers];
 
         for (int i = 0; i < numPlayers; i++){
-            players[i] = new Bot(i);
+            players[i] = new Human(i);
 
         }
         players[0] = new Human(0);

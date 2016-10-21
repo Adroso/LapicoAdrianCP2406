@@ -13,6 +13,12 @@ import java.util.Scanner;
  */
 public class HumanHandle {
     private boolean wasInputEntered = false;
+    private String categoryWasSelected = "";
+    public static HumanHandle humanHandle;
+
+    public HumanHandle(){
+        humanHandle = this;
+    }
 
     public String getCategory(String categories) {
         System.out.println("\n Choose a Category: \n");
@@ -24,22 +30,20 @@ public class HumanHandle {
         for (int i = 0; i < localCats.length; i++) {
             System.out.println(i + " : " + localCats[i]);
         }
-        int userInput = -1;
-        while (userInput < 0 || userInput > localCats.length - 1) {
-            try {
-                System.out.println("Enter Your choice: ");
-                //userInput = new Scanner(System.in).nextInt();
-                GameW.gameW.displayCatChoice();
-                while (!wasInputEntered){
+        int userInput = -1;  //GUI
+            GameW.gameW.displayCatChoice();
 
+            while (!wasInputEntered){
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InputMismatchException p2) {
-                System.out.println("Please Enter Valid Number Input");
-            } catch (IndexOutOfBoundsException p6) {
-                System.out.println("There is no Category at: " + userInput);
             }
-        }
-        return localCats[userInput];
+            wasInputEntered = false;
+            GameW.gameW.hideCatChoice();
+        return categoryWasSelected;
+        //return localCats[userInput];
     }
 
     public Card getCard(Card currentCard, String currentCat, Player currentPlayer) {
@@ -76,7 +80,8 @@ public class HumanHandle {
         return currentPlayer.hand.get(userInput);
     }
 
-    public void categoryNotifier(){
+    public void categoryNotifier(String category){
+        categoryWasSelected = category;
         wasInputEntered = true;
     }
 }

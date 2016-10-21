@@ -2,6 +2,11 @@ package GUI;
 
 import javax.swing.*;
 import Gameplay.SuperTGame;
+import Players.HumanHandle;
+
+import java.awt.event.ActionEvent;
+//TODO add all cards to horizontal box layout (as buttons with image icons)
+//TODO FIX Things disapearing
 
 /**
  * Created by Adroso360 on 9/10/2016.
@@ -39,6 +44,28 @@ public class GameW extends JFrame {
         catSelection.add(specGravity);
         catSelection.add(crustAbund);
         catSelection.add(ecoValue);
+
+        cleavage.addActionListener(e ->{
+            HumanHandle.humanHandle.categoryNotifier("Cleavage");
+
+        });
+        hardness.addActionListener(e ->{
+            HumanHandle.humanHandle.categoryNotifier("Hardness");
+
+        });
+        specGravity.addActionListener(e ->{
+            HumanHandle.humanHandle.categoryNotifier("Specific gravity");
+
+        });
+        crustAbund.addActionListener(e ->{
+            HumanHandle.humanHandle.categoryNotifier("Crustal abundance");
+
+        });
+        ecoValue.addActionListener(e ->{
+            HumanHandle.humanHandle.categoryNotifier("Economic value");
+
+        });
+
         //TODO number players input
 
         new Thread(() -> {
@@ -65,6 +92,9 @@ public class GameW extends JFrame {
     }
     public void displayCatChoice(){
         catSelection.setVisible(true);
+    }
+    public void hideCatChoice(){
+        catSelection.setVisible(false);
     }
 
 
