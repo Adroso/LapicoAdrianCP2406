@@ -58,7 +58,10 @@ public class SuperTRound {
             currentPlayer = players.get(0);
             Card oldCard = currentCard;
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
+            //GUI
             gameW.displayCard(currentCard.fileName);
+            gameW.displayPlayer(currentPlayer.toString());
+            gameW.displayCat(currentCat);
             if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
                 sleep();
