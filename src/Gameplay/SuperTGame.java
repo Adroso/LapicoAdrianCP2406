@@ -5,6 +5,7 @@ import Cards.Card;
 import GUI.GameW;
 import Players.Bot;
 import Cards.SuperTDeck;
+import Players.Human;
 import Players.Player;
 
 import java.util.*;
@@ -69,7 +70,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-        //players[0] = new Human(0);
+        players[0] = new Human(0);
 
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);

@@ -12,6 +12,12 @@ public class GameW extends JFrame {
     private JLabel cCard = new JLabel();
     private JLabel cPlayer = new JLabel();
     private JLabel cCat = new JLabel();
+    private JPanel catSelection = new JPanel();
+    private JButton cleavage = new JButton("Cleavage");
+    private JButton hardness = new JButton("Hardness");
+    private JButton specGravity = new JButton("Specific Gravity");
+    private JButton crustAbund = new JButton("Crustal Abundance");
+    private  JButton ecoValue = new JButton("Economic Value");
 
     public GameW(){
         setVisible(true);
@@ -24,6 +30,13 @@ public class GameW extends JFrame {
         gamePanel.add(cCard);
         gamePanel.add(cPlayer);
         gamePanel.add(cCat);
+        catSelection.setLayout(new BoxLayout(catSelection, BoxLayout.X_AXIS));
+        gamePanel.add(catSelection);
+        catSelection.add(cleavage);
+        catSelection.add(hardness);
+        catSelection.add(specGravity);
+        catSelection.add(crustAbund);
+        catSelection.add(ecoValue);
         //TODO number players input
 
         new Thread(() -> {
@@ -46,6 +59,9 @@ public class GameW extends JFrame {
         cCat.setText("Current Category: " + categoryName);
         invalidate();
         repaint();
+
+    }
+    public void displayCatChoice(){
 
     }
 
