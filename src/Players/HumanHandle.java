@@ -2,13 +2,17 @@ package Players;
 import Cards.Card;
 import Cards.PlayCard;
 import Cards.TrumpCard;
+import GUI.GameW;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 /**
  * Created by Adroso360 on 1/10/2016.
  */
 public class HumanHandle {
+    private boolean wasInputEntered = false;
 
     public String getCategory(String categories) {
         System.out.println("\n Choose a Category: \n");
@@ -24,7 +28,11 @@ public class HumanHandle {
         while (userInput < 0 || userInput > localCats.length - 1) {
             try {
                 System.out.println("Enter Your choice: ");
-                userInput = new Scanner(System.in).nextInt();
+                //userInput = new Scanner(System.in).nextInt();
+                GameW.gameW.displayCatChoice();
+                while (!wasInputEntered){
+
+                }
             } catch (InputMismatchException p2) {
                 System.out.println("Please Enter Valid Number Input");
             } catch (IndexOutOfBoundsException p6) {
@@ -66,5 +74,9 @@ public class HumanHandle {
         }
 
         return currentPlayer.hand.get(userInput);
+    }
+
+    public void categoryNotifier(){
+        wasInputEntered = true;
     }
 }

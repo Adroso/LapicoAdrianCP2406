@@ -18,8 +18,10 @@ public class GameW extends JFrame {
     private JButton specGravity = new JButton("Specific Gravity");
     private JButton crustAbund = new JButton("Crustal Abundance");
     private  JButton ecoValue = new JButton("Economic Value");
+    public static GameW gameW;
 
     public GameW(){
+        GameW.gameW = this;
         setVisible(true);
         pack();
         setContentPane(gamePanel);
@@ -29,7 +31,7 @@ public class GameW extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gamePanel.add(cCard);
         gamePanel.add(cPlayer);
-        gamePanel.add(cCat);
+        gamePanel.add(cCat);catSelection.setVisible(false);
         catSelection.setLayout(new BoxLayout(catSelection, BoxLayout.X_AXIS));
         gamePanel.add(catSelection);
         catSelection.add(cleavage);
@@ -62,8 +64,9 @@ public class GameW extends JFrame {
 
     }
     public void displayCatChoice(){
-
+        catSelection.setVisible(true);
     }
+
 
 
 }
