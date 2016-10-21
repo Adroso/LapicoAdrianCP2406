@@ -67,6 +67,7 @@ public class SuperTGame {
         players = new Player[numPlayers];
 
         for (int i = 0; i < numPlayers; i++){
+            //Change to Bot when done.
             players[i] = new Human(i);
 
         }
