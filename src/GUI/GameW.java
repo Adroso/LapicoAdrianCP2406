@@ -18,6 +18,7 @@ public class GameW extends JFrame {
     private JLabel cPlayer = new JLabel();
     private JLabel cCat = new JLabel();
     private JPanel catSelection = new JPanel();
+    private JLabel gameStatus = new JLabel();
     private JButton cleavage = new JButton("Cleavage");
     private JButton hardness = new JButton("Hardness");
     private JButton specGravity = new JButton("Specific Gravity");
@@ -36,8 +37,10 @@ public class GameW extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gamePanel.add(cCard);
         gamePanel.add(cPlayer);
-        gamePanel.add(cCat);catSelection.setVisible(false);
+        gamePanel.add(cCat);
+        catSelection.setVisible(false);
         catSelection.setLayout(new BoxLayout(catSelection, BoxLayout.X_AXIS));
+        gamePanel.add(gameStatus);
         gamePanel.add(catSelection);
         catSelection.add(cleavage);
         catSelection.add(hardness);
@@ -68,6 +71,7 @@ public class GameW extends JFrame {
 
         //TODO number players input
 
+        //running in background
         new Thread(() -> {
             new SuperTGame(4, this);
         }).start();
@@ -92,9 +96,17 @@ public class GameW extends JFrame {
     }
     public void displayCatChoice(){
         catSelection.setVisible(true);
+        gamePanel.setVisible(true);
     }
     public void hideCatChoice(){
         catSelection.setVisible(false);
+        invalidate();
+        repaint();
+    }
+    public  void changeStatus(String status){
+        gameStatus = new JLabel(status);
+
+
     }
 
 

@@ -21,7 +21,7 @@ public class HumanHandle {
     }
 
     public String getCategory(String categories) {
-        System.out.println("\n Choose a Category: \n");
+        //System.out.println("\n Choose a Category: \n");
         String[] localCats = categories.split(", ");
         //handles if there is only 1 category passed in.
         if (localCats.length == 1) {
@@ -30,7 +30,8 @@ public class HumanHandle {
         for (int i = 0; i < localCats.length; i++) {
             System.out.println(i + " : " + localCats[i]);
         }
-        int userInput = -1;  //GUI
+        //int userInput = -1;
+        // GUI
             GameW.gameW.displayCatChoice();
 
             while (!wasInputEntered){
