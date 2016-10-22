@@ -8,6 +8,8 @@ import Players.HumanHandle;
 import Players.Player;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import static java.awt.Color.WHITE;
@@ -98,6 +100,7 @@ public class GameW extends JFrame {
         handTitle.setFont(fontPlay);
         gamePanel.add(handScroll);
 
+
         //Final Screen Components
         winnersDisplayed.setVisible(false);
         gamePanel.add(winnersDisplayed);
@@ -105,7 +108,7 @@ public class GameW extends JFrame {
         //FINAL BULD and DISPLAY
         setVisible(true);
         pack();
-        setSize(1500, 925);
+        setSize(1600, 975);
         validate();
 
 
@@ -169,6 +172,8 @@ public class GameW extends JFrame {
     }
     public void hideCatChoice(){
         catSelection.setVisible(false);
+        cardTitle.setVisible(true);
+        handTitle.setVisible(true);
         invalidate();
         repaint();
     }
@@ -196,7 +201,7 @@ public class GameW extends JFrame {
         handSize = hand.size();
         for (int i=0; i < handSize ;i++) {
             JButton card = new JButton();
-            card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(i).fileName).getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
+            card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(i).fileName).getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
            // playerHand.add(new JButton());
             playerHand.add(card);
             int finalI1 = i;
@@ -205,13 +210,44 @@ public class GameW extends JFrame {
                 HumanHandle.humanHandle.cardNotifier(finalI1);
                 playerHand.remove(card);
             });
+
+            //Hover Effect
+            card.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    super.mouseEntered(e);
+                    card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(finalI1).fileName).getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
+                }
+            });
+            card.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    super.mouseExited(e);
+                    card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(finalI1).fileName).getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
+
+                }
+            });
         }
         JButton skip = new JButton();
-        skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
+        skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
         playerHand.add(skip);
         skip.addActionListener(e -> {
             HumanHandle.humanHandle.cardNotifier(handSize);
             playerHand.removeAll();
+        });
+        // Hover Effect
+        skip.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));            }
+        });
+        skip.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
+            }
         });
         playerHand.setVisible(true);
         invalidate();
