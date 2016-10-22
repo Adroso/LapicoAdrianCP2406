@@ -43,6 +43,7 @@ public class SuperTGame {
         for(Player player: playersWhoWon){
             System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
         }
+        GameW.gameW.buildWinners(playersWhoWon);
         new MenuW("New Game");
 
     }

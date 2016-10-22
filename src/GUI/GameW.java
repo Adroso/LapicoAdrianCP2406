@@ -6,11 +6,11 @@ import Cards.Card;
 import Cards.SuperTDeck;
 import Gameplay.SuperTGame;
 import Players.HumanHandle;
+import Players.Player;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-//TODO add all cards to horizontal box layout (as buttons with image icons)
-//TODO FIX Things disapearing
+
 
 /**
  * Created by Adroso360 on 9/10/2016.
@@ -34,6 +34,7 @@ public class GameW extends JFrame {
     private JButton specGravity = new JButton("Specific Gravity");
     private JButton crustAbund = new JButton("Crustal Abundance");
     private  JButton ecoValue = new JButton("Economic Value");
+    private JPanel winnersDisplayed = new JPanel();
     public static GameW gameW;
 
     public GameW(){
@@ -58,6 +59,8 @@ public class GameW extends JFrame {
         catSelection.add(ecoValue);
         gamePanel.add(playerHand);
         playerHand.setVisible(true);
+        winnersDisplayed.setVisible(false);
+        gamePanel.add(winnersDisplayed);
         setVisible(true);
         pack();
         setSize(1000, 500);
@@ -168,4 +171,17 @@ public class GameW extends JFrame {
         validate();
     }
 
+    public void buildWinners(ArrayList<Player> winnerList){
+        for (int i=0; i < winnerList.size(); i++){
+            int place = i +1;
+            JLabel winner = new JLabel(place +"st Place is " + winnerList.get(i).position);
+            winnersDisplayed.add(winner);
+        }
+        winnersDisplayed.setSize(1000, 500);
+        winnersDisplayed.setVisible(true);
+        invalidate();
+        repaint();
+        validate();
+
+    }
 }
