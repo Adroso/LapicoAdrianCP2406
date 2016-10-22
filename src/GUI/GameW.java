@@ -135,8 +135,6 @@ public class GameW extends JFrame {
 
         });
 
-        //TODO number players input
-
         //running in background
         new Thread(() -> {
             new SuperTGame(numPlay, this);
@@ -255,6 +253,7 @@ public class GameW extends JFrame {
         validate();
     }
 
+    // Handlers for the Ending of a Game
     public void buildWinners(ArrayList<Player> winnerList){
         for (int i=0; i < winnerList.size(); i++){
             int place = i +1;
