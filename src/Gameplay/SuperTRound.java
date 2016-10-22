@@ -64,6 +64,7 @@ public class SuperTRound {
         // Round Handler
         while (players.size() > 1){
             currentPlayer = players.get(0);
+            gameW.displayPlayer(currentPlayer.toString());
             Card oldCard = currentCard;
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             //GUI

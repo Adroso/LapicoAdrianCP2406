@@ -12,7 +12,7 @@ public class GUITest {
         trumpGUI();
     }
     public static void trumpGUI(){
-        JFrame mainFrame = new MenuW("Mineral Super Trumps! - The Computer Game!");
+        new MenuW("Mineral Super Trumps! - The Computer Game!");
 
     }
 }

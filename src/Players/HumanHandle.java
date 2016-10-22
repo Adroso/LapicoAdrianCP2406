@@ -82,6 +82,7 @@ public class HumanHandle {
             if (userInput > 0 && userInput < currentPlayer.hand.size()) {
                 if (currentCard instanceof PlayCard && !currentPlayer.hand.get(userInput).isBetterThan((PlayCard) currentCard, currentCat)) {
                     System.out.println(currentPlayer.hand.get(userInput).title + " is not better than " + currentCard.title);
+                    GameW.gameW.changeStatus("Card You Selected, Is not better than the current card.");
                     userInput = -1;
                 } else if (currentCard instanceof TrumpCard) {
 
