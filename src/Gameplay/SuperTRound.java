@@ -37,7 +37,6 @@ public class SuperTRound {
 
     public RoundFinished beginRound() {
         System.out.println("<<<<<<<<<<<<<< NEW ROUND HAS STARTED >>>>>>>>>>>>>>");
-        GameW.gameW.changeStatus("NEW ROUND");
         sleep();
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
@@ -50,7 +49,7 @@ public class SuperTRound {
             currentPlayer.hand.remove(currentCard);
             didPlayerWin(currentPlayer);
         }
-        gameW.displayCard(currentCard.fileName);
+        //gameW.displayCard(currentCard.fileName);
         //Handles current player cycle
         Collections.rotate(players, players.indexOf(currentPlayer) * -1);
         Collections.rotate(players, - 1);

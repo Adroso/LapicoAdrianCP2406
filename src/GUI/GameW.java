@@ -35,7 +35,6 @@ public class GameW extends JFrame {
         setSize(1000, 500);
         setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        gamePanel.add(cCard);
         gamePanel.add(cPlayer);
         gamePanel.add(cCat);
         catSelection.setVisible(false);
@@ -47,6 +46,7 @@ public class GameW extends JFrame {
         catSelection.add(specGravity);
         catSelection.add(crustAbund);
         catSelection.add(ecoValue);
+        gamePanel.add(cCard);
 
         cleavage.addActionListener(e ->{
             HumanHandle.humanHandle.categoryNotifier("Cleavage");
@@ -80,6 +80,7 @@ public class GameW extends JFrame {
 
     public void displayCard(String fileName){
         cCard.setIcon(new ImageIcon(new ImageIcon("images/" + fileName).getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
+        cCard.setVisible(true);
         invalidate();
         repaint();
     }
