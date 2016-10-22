@@ -13,6 +13,9 @@ public class MenuW extends JFrame {
     private JButton startGameButton;
     private JButton gameRulesButton;
     private JPanel rootPanel;
+    private JRadioButton a3PlayersRadioButton;
+    private JRadioButton a4PlayersRadioButton;
+    private JRadioButton a5PlayersRadioButton;
     public static MenuW menuW;
 
     public MenuW(String title){
@@ -45,7 +48,21 @@ public class MenuW extends JFrame {
 
         startGameButton.addActionListener(e -> {
             setVisible(false);
-            new GameW();
+            new GameW(playerSelect());
         });
+    }
+    public int playerSelect(){
+        if(a3PlayersRadioButton.isSelected()){
+            return 3;
+        }else {
+            if (a4PlayersRadioButton.isSelected()) {
+                return 4;
+            } else {
+                if (a5PlayersRadioButton.isSelected()) {
+                    return 5;
+                }
+            }
+        }
+        return 3;
     }
 }

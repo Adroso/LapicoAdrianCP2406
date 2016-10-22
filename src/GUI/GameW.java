@@ -42,7 +42,7 @@ public class GameW extends JFrame {
     private JLabel cardTitle = new JLabel("Current Card:");
     public static GameW gameW;
 
-    public GameW(){
+    public GameW(int numPlay){
         GameW.gameW = this;
         // SETTING FONTS
         Font fontCat = new Font(Font.SANS_SERIF, 3, 30);
@@ -139,7 +139,7 @@ public class GameW extends JFrame {
 
         //running in background
         new Thread(() -> {
-            new SuperTGame(4, this);
+            new SuperTGame(numPlay, this);
         }).start();
 
     }

@@ -6,7 +6,7 @@ package GUI;
 
 import javax.swing.*;
 
-public class GUITest {
+public class RunGUI {
 
     public static void main(String[] args) {
         trumpGUI();
