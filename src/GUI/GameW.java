@@ -19,7 +19,6 @@ public class GameW extends JFrame {
     //Hand
     private int handSize;
     private JScrollPane handScroll;
-    private JButton handButtons [];
     private JPanel playerHand = new JPanel();
     //Other
     private JPanel gamePanel = new JPanel();
@@ -39,11 +38,8 @@ public class GameW extends JFrame {
 
     public GameW(){
         GameW.gameW = this;
-        setVisible(true);
-        pack();
         setContentPane(gamePanel);
         gamePanel.setLayout(new BoxLayout(gamePanel, BoxLayout.Y_AXIS));
-        setSize(1000, 500);
         setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gamePanel.add(cPlayer);
@@ -61,6 +57,12 @@ public class GameW extends JFrame {
         catSelection.add(crustAbund);
         catSelection.add(ecoValue);
         gamePanel.add(playerHand);
+        playerHand.setVisible(true);
+        setVisible(true);
+        pack();
+        setSize(1000, 500);
+        validate();
+
 
 
 
@@ -160,8 +162,10 @@ public class GameW extends JFrame {
             HumanHandle.humanHandle.cardNotifier(handSize);
             playerHand.removeAll();
         });
+        playerHand.setVisible(true);
         invalidate();
         repaint();
+        validate();
     }
 
 }

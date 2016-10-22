@@ -88,7 +88,6 @@ public class SuperTRound {
                 else
                     //GUI
                     GameW.gameW.changeStatus("The Deck Is Empty");
-                    System.out.println("No cards left in deck to draw!");
                     GameW.gameW.clearStatus();
 
             } else if(currentCard instanceof TrumpCard){

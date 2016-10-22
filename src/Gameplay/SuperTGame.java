@@ -3,6 +3,7 @@ package Gameplay; /**
  */
 import Cards.Card;
 import GUI.GameW;
+import GUI.MenuW;
 import Players.Bot;
 import Cards.SuperTDeck;
 import Players.Human;
@@ -42,6 +43,7 @@ public class SuperTGame {
         for(Player player: playersWhoWon){
             System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
         }
+        new MenuW("New Game");
 
     }
     private void showPlayer(Player hupl) {
@@ -71,7 +73,7 @@ public class SuperTGame {
             players[i] = new Bot(i);
 
         }
-        players[0] = new Human(0);
+        //players[0] = new Human(0);
 
         for (Player player: players) {
             ArrayList<Card> cards = deck.dealCards(INITIAL_CARD_DEAL);

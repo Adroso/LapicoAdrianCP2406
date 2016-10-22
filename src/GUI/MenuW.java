@@ -13,9 +13,11 @@ public class MenuW extends JFrame {
     private JButton startGameButton;
     private JButton gameRulesButton;
     private JPanel rootPanel;
+    public static MenuW menuW;
 
     public MenuW(String title){
         super(title);
+        MenuW.menuW =this;
         setContentPane(rootPanel);
         pack();
         setVisible(true);
