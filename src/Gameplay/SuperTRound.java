@@ -174,7 +174,7 @@ public class SuperTRound {
         return currentCat;
 
     }
-    // Adds a delay to souts
+    // Adds a delay
     public void sleep(){
         try {
             Thread.sleep(1000);

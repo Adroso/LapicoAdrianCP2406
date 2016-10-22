@@ -44,6 +44,8 @@ public class SuperTGame {
             System.out.println((playersWhoWon.indexOf(player) +1) + "Place : Player " + player.position);
         }
         GameW.gameW.buildWinners(playersWhoWon);
+        sleependgame();
+        GameW.gameW.gameClear();
         new MenuW("New Game");
 
     }
@@ -88,5 +90,13 @@ public class SuperTGame {
             newArrayList.add(superTbasePlayer);
         }
         return newArrayList;
+    }
+
+    public void sleependgame(){
+        try {
+            Thread.sleep(9000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

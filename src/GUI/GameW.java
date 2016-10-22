@@ -268,5 +268,8 @@ public class GameW extends JFrame {
         validate();
 
     }
+    public void gameClear(){
+        gamePanel.setVisible(false);
+    }
 
 }
