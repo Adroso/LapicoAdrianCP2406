@@ -143,6 +143,9 @@ public class SuperTRound {
     private void didPlayerWin(Player currentPlayer) {
         if(currentPlayer.hand.size() == 0){
             System.out.println("Player: " + currentPlayer.position + " WON! as they have no cards!");
+            if (currentPlayer.position ==0){
+                GameW.gameW.handGUIGenerator(currentPlayer.hand);
+            }
             playersNotWonYet.remove(currentPlayer);
             playersWhoWon.add(currentPlayer);
             players.remove(currentPlayer);

@@ -93,7 +93,7 @@ public class GameW extends JFrame {
         //playerHand.setVisible(true);
 
         //Players Hand Components
-        gamePanel.add(Box.createRigidArea(new Dimension(0,60)));
+        gamePanel.add(Box.createRigidArea(new Dimension(0,40)));
         gamePanel.add(handTitle);
         handTitle.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         handTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -108,7 +108,7 @@ public class GameW extends JFrame {
         //FINAL BULD and DISPLAY
         setVisible(true);
         pack();
-        setSize(1600, 975);
+        setSize(1300, 975);
         validate();
 
 
@@ -143,7 +143,7 @@ public class GameW extends JFrame {
     }
 
     public void displayCard(String fileName){
-        cCard.setIcon(new ImageIcon(new ImageIcon("images/" + fileName).getImage().getScaledInstance((int)Math.floor(400 * 0.714), 400,  java.awt.Image.SCALE_SMOOTH)));
+        cCard.setIcon(new ImageIcon(new ImageIcon("images/" + fileName).getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
         cCard.setVisible(true);
         cCard.setAlignmentX(Component.CENTER_ALIGNMENT);
         invalidate();
@@ -214,7 +214,7 @@ public class GameW extends JFrame {
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     super.mouseEntered(e);
-                    card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(finalI1).fileName).getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));
+                    card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(finalI1).fileName).getImage().getScaledInstance((int)Math.floor(250 * 0.714), 250,  java.awt.Image.SCALE_SMOOTH)));
                 }
             });
             card.addMouseListener(new MouseAdapter() {
@@ -233,12 +233,17 @@ public class GameW extends JFrame {
             HumanHandle.humanHandle.cardNotifier(handSize);
             playerHand.removeAll();
         });
+
+        if (hand.size() == 0){
+            handTitle.setText("You Have No Cards Left, The others will continue to determine the other places");
+            skip.setEnabled(false);
+        }
         // Hover Effect
         skip.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
-                skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(300 * 0.714), 300,  java.awt.Image.SCALE_SMOOTH)));            }
+                skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(250 * 0.714), 250,  java.awt.Image.SCALE_SMOOTH)));            }
         });
         skip.addMouseListener(new MouseAdapter() {
             @Override
