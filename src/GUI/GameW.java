@@ -174,7 +174,7 @@ public class GameW extends JFrame {
     public void buildWinners(ArrayList<Player> winnerList){
         for (int i=0; i < winnerList.size(); i++){
             int place = i +1;
-            JLabel winner = new JLabel(place +"st Place is " + winnerList.get(i).position);
+            JLabel winner = new JLabel("            " + place +"st Place is Player: " + winnerList.get(i).position);
             winnersDisplayed.add(winner);
         }
         winnersDisplayed.setSize(1000, 500);

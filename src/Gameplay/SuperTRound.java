@@ -176,7 +176,7 @@ public class SuperTRound {
     // Adds a delay to souts
     public void sleep(){
         try {
-            Thread.sleep(10);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
