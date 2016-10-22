@@ -37,7 +37,13 @@ public class SuperTRound {
 
     public RoundFinished beginRound() {
         System.out.println("<<<<<<<<<<<<<< NEW ROUND HAS STARTED >>>>>>>>>>>>>>");
+        //GUI
+        GameW.gameW.clearStatus();
+        GameW.gameW.changeMajorStatus("A NEW ROUND HAS STARTED");
+        gameW.displayPlayer(currentPlayer.toString());
+        gameW.displayCat(currentCat);
         sleep();
+        GameW.gameW.clearMajorStatus();
         Card currentCard = null;
         if(roundFinishedType.equals(RoundFinishedType.STANDARD)){
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
@@ -65,6 +71,8 @@ public class SuperTRound {
             gameW.displayCat(currentCat);
             if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
+                //GUI
+                GameW.gameW.changeStatus(currentPlayer.position + " did not play a card and is removed from the round");
                 sleep();
                 players.remove(currentPlayer);
                 //Checks if the deck is empty upon drawing.
@@ -72,7 +80,10 @@ public class SuperTRound {
                 if(deck.count() > 0)
                     currentPlayer.hand.add(deck.takeCard());
                 else
+                    //GUI
+                    GameW.gameW.changeStatus("The Deck Is Empty");
                     System.out.println("No cards left in deck to draw!");
+                    GameW.gameW.clearStatus();
 
             } else if(currentCard instanceof TrumpCard){
                 System.out.println("Player: " + currentPlayer.position + " played the trump card: " + currentCard.toString());
@@ -84,6 +95,8 @@ public class SuperTRound {
             } else {
                 System.out.println("Player: " + currentPlayer.position + " played the card: " + currentCard.toString());
                 sleep();
+                gameW.displayPlayer(currentPlayer.toString());
+                gameW.displayCat(currentCat);
                 currentPlayer.hand.remove(currentCard);
                 didPlayerWin(currentPlayer);
                 Collections.rotate(players, -1);

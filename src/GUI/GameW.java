@@ -1,10 +1,14 @@
 package GUI;
 
 import javax.swing.*;
+
+import Cards.Card;
+import Cards.SuperTDeck;
 import Gameplay.SuperTGame;
 import Players.HumanHandle;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 //TODO add all cards to horizontal box layout (as buttons with image icons)
 //TODO FIX Things disapearing
 
@@ -12,13 +16,20 @@ import java.awt.event.ActionEvent;
  * Created by Adroso360 on 9/10/2016.
  */
 public class GameW extends JFrame {
-    private JScrollPane hand;
+    //Hand
+    private int handSize;
+    private JScrollPane handScroll;
+    private JButton handButtons [];
+    private JPanel playerHand = new JPanel();
+    //Other
     private JPanel gamePanel = new JPanel();
     private JLabel cCard = new JLabel();
     private JLabel cPlayer = new JLabel();
     private JLabel cCat = new JLabel();
     private JPanel catSelection = new JPanel();
+    private JLabel majorStatus = new JLabel();
     private JLabel gameStatus = new JLabel();
+    private JLabel catPrompt = new JLabel("Please Choose a Category: ");
     private JButton cleavage = new JButton("Cleavage");
     private JButton hardness = new JButton("Hardness");
     private JButton specGravity = new JButton("Specific Gravity");
@@ -37,16 +48,21 @@ public class GameW extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gamePanel.add(cPlayer);
         gamePanel.add(cCat);
+        gamePanel.add(majorStatus);
+        gamePanel.add(cCard);
         catSelection.setVisible(false);
         catSelection.setLayout(new BoxLayout(catSelection, BoxLayout.X_AXIS));
         gamePanel.add(gameStatus);
         gamePanel.add(catSelection);
+        catSelection.add(catPrompt);
         catSelection.add(cleavage);
         catSelection.add(hardness);
         catSelection.add(specGravity);
         catSelection.add(crustAbund);
         catSelection.add(ecoValue);
-        gamePanel.add(cCard);
+        gamePanel.add(playerHand);
+
+
 
         cleavage.addActionListener(e ->{
             HumanHandle.humanHandle.categoryNotifier("Cleavage");
@@ -105,11 +121,40 @@ public class GameW extends JFrame {
         repaint();
     }
     public  void changeStatus(String status){
-        gameStatus = new JLabel(status);
-
-
+        gameStatus.setText(status);
+        invalidate();
+        repaint();
     }
 
+    public void clearStatus(){
+        gameStatus.setText("");
+    }
+    public  void changeMajorStatus(String status){
+        gameStatus.setText(status);
+        invalidate();
+        repaint();
+    }
 
+    public void clearMajorStatus(){
+        gameStatus.setText("");
+    }
+
+    public void handGUIGenerator(ArrayList<Card> hand){
+        handSize = hand.size();
+        System.out.println(handSize);
+        for (int i=0; i < handSize ;i++) {
+            JButton card = new JButton();
+            card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(i).fileName).getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
+           // playerHand.add(new JButton());
+            playerHand.add(card);
+            int finalI = i;
+            card.addActionListener(e ->{
+                HumanHandle.humanHandle.cardNotifier(hand.get(finalI));
+            });
+
+        }
+        invalidate();
+        repaint();
+    }
 
 }
