@@ -140,19 +140,26 @@ public class GameW extends JFrame {
     }
 
     public void handGUIGenerator(ArrayList<Card> hand){
+        playerHand.removeAll();
         handSize = hand.size();
-        System.out.println(handSize);
         for (int i=0; i < handSize ;i++) {
             JButton card = new JButton();
             card.setIcon(new ImageIcon(new ImageIcon("images/" + hand.get(i).fileName).getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
            // playerHand.add(new JButton());
             playerHand.add(card);
-            int finalI = i;
+            int finalI1 = i;
             card.addActionListener(e ->{
-                HumanHandle.humanHandle.cardNotifier(hand.get(finalI));
+                HumanHandle.humanHandle.cardNotifier(finalI1);
+                playerHand.remove(card);
             });
-
         }
+        JButton skip = new JButton();
+        skip.setIcon(new ImageIcon(new ImageIcon("images/Slide66.jpg").getImage().getScaledInstance((int)Math.floor(150 * 0.714), 150,  java.awt.Image.SCALE_SMOOTH)));
+        playerHand.add(skip);
+        skip.addActionListener(e -> {
+            HumanHandle.humanHandle.cardNotifier(handSize);
+            playerHand.removeAll();
+        });
         invalidate();
         repaint();
     }

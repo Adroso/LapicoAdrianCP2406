@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class HumanHandle {
     private boolean wasInputEntered = false;
     private String categoryWasSelected = "";
-    private Card cardWasSelected;
+    private int cardWasSelected;
     public static HumanHandle humanHandle;
 
     public HumanHandle(){
@@ -61,7 +61,17 @@ public class HumanHandle {
         while (userInput < 0 || userInput > currentPlayer.hand.size()) {
             try {
                 System.out.println("Enter Your choice: ");
-                userInput = new Scanner(System.in).nextInt();
+                //userInput = new Scanner(System.in).nextInt();
+                //GUI
+                while (!wasInputEntered){
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                userInput = cardWasSelected;
+                wasInputEntered = false;
 
                 if (userInput == currentPlayer.hand.size()) {
                     return currentCard;
@@ -81,15 +91,16 @@ public class HumanHandle {
                 System.out.println("Please choose a valid option"); // handles if user inputs greater than List
             }
         }
-        return cardWasSelected;
-        //return currentPlayer.hand.get(userInput);
+
+        //return cardWasSelected;
+        return currentPlayer.hand.get(userInput);
     }
 
     public void categoryNotifier(String category){
         categoryWasSelected = category;
         wasInputEntered = true;
     }
-    public void cardNotifier(Card selectedCard){
+    public void cardNotifier(int selectedCard){
         cardWasSelected = selectedCard;
         wasInputEntered = true;
     }

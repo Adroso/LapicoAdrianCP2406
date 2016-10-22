@@ -36,6 +36,7 @@ public class SuperTRound {
     }
 
     public RoundFinished beginRound() {
+
         System.out.println("<<<<<<<<<<<<<< NEW ROUND HAS STARTED >>>>>>>>>>>>>>");
         //GUI
         GameW.gameW.clearStatus();
@@ -66,9 +67,14 @@ public class SuperTRound {
             Card oldCard = currentCard;
             currentCard = findPickCard(currentPlayer, currentCat, currentCard);
             //GUI
-            gameW.displayCard(currentCard.fileName);
-            gameW.displayPlayer(currentPlayer.toString());
-            gameW.displayCat(currentCat);
+            try {
+                gameW.displayCard(currentCard.fileName);
+                gameW.displayPlayer(currentPlayer.toString());
+                gameW.displayCat(currentCat);
+            }
+            catch (NullPointerException a){
+                gameW.displayCard("Slide66.jpg");
+            }
             if(oldCard == null && currentCard == null || oldCard!= null && currentCard.equals(oldCard)){
                 System.out.println(currentPlayer.position + " did not play a card and is removed from the round");
                 //GUI
